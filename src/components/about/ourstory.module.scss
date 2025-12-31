@@ -1,0 +1,193 @@
+.storySection {
+  width: 100%;
+
+  .headingWrapper {
+    text-align: left;
+    margin-bottom: 2rem;
+    .heading {
+      font-family: Poppins, sans-serif;
+      font-weight: 500;
+      font-size: 42px;
+      line-height: 100%;
+      text-transform: capitalize;
+      color: #d18d4b;
+    }
+    .subHeading {
+      font-family: Poppins, sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      margin-top: 0.5rem;
+      color: #444;
+    }
+    .viewBtn {
+      margin-top: 1.5rem;
+      width: 134px;
+      height: 40px;
+      border-radius: 100px;
+      background: #984b01;
+      color: #fff;
+      border: none;
+      font-family: Poppins, sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 6px;
+      .arrow {
+        font-size: 16px;
+      }
+    }
+  }
+
+  .contentWrapper {
+    display: flex;
+    align-items: stretch; /* ensures equal height for both sides */
+    justify-content: space-between;
+    gap: 2rem;
+
+    /* Stack at and below this width */
+    @media (max-width: 1166px) {
+      flex-direction: column;
+      align-items: center;
+      gap: 1.25rem;
+    }
+  }
+
+  .imageWrapper {
+    flex: 1;
+    display: flex;
+    align-items: stretch;
+
+    .storyImage {
+      border-radius: 16px;
+      width: 100%;
+      height: 100%; /* stretch to match right column height */
+      object-fit: cover;
+      display: block;
+    }
+  }
+
+  .textWrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start; /* <-- important: prevents big vertical gaps */
+    gap: 12px; /* smaller gap for tighter layout */
+
+    .rightHeading {
+      font-family: Poppins, sans-serif;
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 1.15;
+      margin: 0 0 8px 0; /* reduce space below heading */
+      color: #d18d4b;
+    }
+    .textWrapper .list {
+      list-style: disc;
+      padding-left: 1.5rem;
+      margin: 0;
+      font-family: Poppins, sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+      font-weight: 500;
+      color: #585858;
+
+      li {
+        margin-bottom: 8px;
+      }
+    }
+
+    .list {
+      list-style: disc;
+      margin: 0;
+      padding-left: 1.25rem;
+      font-family: Poppins, sans-serif;
+      font-size: 14px;
+      line-height: 1.45;
+      font-weight: 500;
+      text-transform: capitalize;
+
+      li {
+        margin: 0 0 10px 0; /* smaller gap between items */
+      }
+
+      /* make marker consistent across browsers */
+      li::marker {
+        font-size: 12px;
+        color: #333;
+      }
+    }
+
+    .exampleTitle {
+      font-family: Poppins, sans-serif;
+      font-weight: 700; /* Bold */
+      font-size: 14px;
+      margin: 8px 0 6px 0; /* tighter spacing */
+      text-transform: capitalize;
+    }
+
+    .exampleText {
+      font-family: Poppins, sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.6;
+      color: #555;
+      margin: 0;
+      text-transform: none;
+    }
+  }
+}
+
+/* Responsive tweaks */
+@media (max-width: 1024px) {
+  .storySection {
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+    .headingWrapper {
+      .heading {
+        font-size: 36px;
+      }
+    }
+
+    .textWrapper {
+      .rightHeading {
+        font-size: 22px;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .storySection {
+    .headingWrapper .heading {
+      font-size: 32px;
+    }
+    .textWrapper .rightHeading {
+      font-size: 20px;
+    }
+    .textWrapper {
+      gap: 10px;
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .storySection {
+    padding: 1rem;
+
+    .headingWrapper {
+      .heading {
+        font-size: 28px;
+      }
+      /* center button on mobile for cleaner look */
+      .viewBtn {
+        align-self: center;
+        width: 110px;
+      }
+    }
+  }
+}

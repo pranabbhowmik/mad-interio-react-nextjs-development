@@ -1,0 +1,1009 @@
+// @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+
+// .heroWrapper {
+//   /* Control side margins here (20px each side). Change 20px if you want more/less margin */
+//   width: calc(100% - 35px);
+
+//   margin: 0px auto; /* centers the hero with left/right margin */
+//   position: relative;
+//   /* keep overflow visible so searchBox can overlap outside the heroInner */
+//   overflow: visible;
+//   font-family: "Poppins";
+//   margin-bottom: 8rem;
+// }
+
+// .hero {
+//   position: relative;
+//   width: 100%;
+// }
+
+// /* visible rounded area that contains video + overlay and is clipped */
+// .heroInner {
+//   position: relative;
+//   border-bottom-right-radius: 25px;
+//   border-bottom-left-radius: 25px;
+//   overflow: hidden; /* clip video + overlay to rounded corners */
+//   /* Responsive height: min 520px, prefer 75vh, max 745px */
+//   height: clamp(520px, 100vh, 780px);
+//   align-items: center;
+//   display: flex;
+//   background: #111; /* fallback while video loads */
+// }
+// @media (max-width: 768px) {
+//   .heroInner {
+//     height: clamp(420px, 50vh, 620px);
+//   }
+// }
+// /* full-bleed video inside heroInner */
+// .video {
+//   position: absolute;
+//   inset: 0; /* top:0; right:0; bottom:0; left:0; */
+//   width: 100%;
+//   height: 100%;
+//   object-fit: cover;
+//   z-index: 0;
+// }
+
+// .overlay {
+//   position: absolute;
+//   inset: 0;
+//   z-index: 1;
+//   background: linear-gradient(
+//     99.9deg,
+//     #984b01 14.63%,
+//     rgba(255, 215, 174, 0) 78.75%
+//   );
+//   opacity: 0.9;
+// }
+
+// /* main text content (kept inside heroInner so it over the overlay) */
+// .content {
+//   position: relative;
+//   z-index: 2;
+
+//   /* Removed margin-top: 10%; now absorbed into padding-top below for consistent positioning */
+//   padding-top: clamp(
+//     76px,
+//     26vh,
+//     178px
+//   ); /* Top: original padding-top + 10% equiv, clamped to minimize shift */
+//   padding-bottom: clamp(24px, 8vh, 100px); /* Bottom: unchanged for balance */
+//   padding-left: clamp(
+//     20px,
+//     5vw,
+//     120px
+//   ); /* Horizontal: increased max/preferred for large-screen left shift */
+//   padding-right: clamp(20px, 5vw, 120px);
+//   color: #fff;
+
+//   h1 {
+//     font-family: "Poppins";
+//     font-weight: 600;
+//     font-size: clamp(2rem, 5vw, 4rem); /* scales on mobile/desktop */
+//     max-width: 900px; /* forces 2 lines */
+//     line-height: 1.2;
+//     margin: 0 0 20px 0; /* spacing below heading */
+//   }
+
+//   p {
+//     font-family: "Poppins", sans-serif;
+//     font-weight: 400;
+//     font-size: clamp(1rem, 2vw, 1.25rem);
+//     line-height: 1.6;
+//     margin: 0 0 30px 0; /* spacing below paragraph */
+//     max-width: 600px;
+//     color: rgba(255, 255, 255, 0.9);
+//   }
+
+//   .cta {
+//     display: inline-block;
+//     background: #ffffff4d;
+//     color: #fff;
+//     border: none;
+//     padding: 14px 32px;
+//     font-size: 14px;
+//     line-height: 100%;
+//     font-family: "Poppins";
+//     border-radius: 30px;
+//     cursor: pointer;
+//     font-weight: 700;
+//   }
+// }
+
+// /* Removed margin-left: 5% from this media query; horizontal padding now handles large-screen shift */
+// @media (min-width: 1524px) {
+//   /* No changes needed here anymore */
+// }
+
+// /* SEARCH BOX — centered horizontally, overlapping bottom */
+// .searchBox {
+//   position: absolute;
+//   left: 50%;
+//   transform: translateX(-50%);
+//   /* overlap: adjust this negative bottom to push half outside the heroInner */
+//   bottom: -78px;
+//   z-index: 3;
+
+//   width: 100%;
+//   max-width: 1013px; /* design width */
+
+//   background: #fff;
+//   border-radius: 100px;
+//   display: flex;
+//   align-items: center;
+//   gap: 16px;
+//   flex-wrap: wrap;
+//   padding: 30px 30px;
+//   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
+
+//   .searchBtn {
+//     padding: 12px;
+//     display: flex;
+//     align-content: center;
+//     justify-content: center;
+//     align-items: stretch;
+//     flex-direction: row;
+//     flex-wrap: wrap;
+//     gap: 8px;
+//   }
+
+//   .searchBtn span {
+//     margin-top: 4px;
+//   }
+
+//   .searchBtn {
+//     background: #984b01;
+//     color: white;
+//     border: none;
+//     padding: 14px 34px;
+//     border-radius: 50px;
+//     cursor: pointer;
+//     white-space: nowrap;
+//     font-family: Poppins;
+//     font-weight: 600;
+//     font-style: SemiBold;
+//     font-size: 16px;
+//     leading-trim: NONE;
+//     line-height: 100%;
+//     letter-spacing: 0%;
+//   }
+// }
+
+// .searchLabel {
+//   width: 100%;
+//   text-align: center;
+//   font-family: "Poppins", sans-serif;
+//   font-weight: 500;
+//   font-style: normal;
+//   font-size: 16px;
+//   line-height: 1;
+//   letter-spacing: 0;
+//   text-transform: capitalize;
+//   color: var(--D18D4B, #d18d4b);
+//   margin-bottom: 12px;
+// }
+
+// @media (max-width: 480px) {
+//   .searchLabel {
+//     font-size: 14px;
+//     margin-bottom: 10px;
+//     padding-top: 20px;
+//   }
+// }
+
+// /* ------------------ Custom Dropdown Styles ------------------ */
+// .customDropdown {
+//   position: relative;
+//   flex: 1;
+//   min-width: 200px; /* Adjust as needed for your design width */
+// }
+
+// .dropdownTrigger {
+//   width: 100%;
+//   background: #fff;
+//   border: 1px solid #6f8493;
+//   border-radius: 50px; /* Rounded corners like inputs */
+//   padding: 12px 16px; /* Padding for button-like feel */
+//   font-size: 0.95rem;
+//   font-family: "Poppins", sans-serif;
+//   color: #333;
+//   cursor: pointer;
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+//   outline: none;
+//   transition: border-color 0.2s ease;
+
+//   &:hover,
+//   &:focus {
+//     border-color: #984b01;
+//   }
+// }
+
+// .dropdownArrow {
+//   font-size: 0.8rem;
+//   color: #6f8493;
+//   transition: transform 0.2s ease;
+// }
+
+// .dropdownMenu {
+//   position: absolute;
+//   top: 100%;
+//   left: 0;
+//   right: 0;
+//   background: #fff;
+//   border: 1px solid #6f8493;
+//   border-radius: 12px; /* Rounded corners for the dropdown div */
+//   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+//   z-index: 10;
+//   max-height: 200px;
+//   overflow-y: auto;
+//   margin-top: 4px;
+//   -webkit-overflow-scrolling: touch; // Enables smooth momentum scrolling on iOS Safari
+
+//   // Custom scrollbar styles for visibility (WebKit/Safari/iOS and Firefox)
+//   &::-webkit-scrollbar {
+//     width: 6px;
+//     -webkit-appearance: none; // Ensures custom styles apply on iOS
+//   }
+
+//   &::-webkit-scrollbar-track {
+//     background: #f1f1f1;
+//     border-radius: 3px;
+//   }
+
+//   &::-webkit-scrollbar-thumb {
+//     background: #888;
+//     border-radius: 3px;
+//     -webkit-appearance: none; // Ensures thumb is visible on iOS
+//   }
+
+//   &::-webkit-scrollbar-thumb:hover {
+//     background: #555;
+//   }
+
+//   scrollbar-width: thin; // Firefox
+//   scrollbar-color: #888 #f1f1f1; // Firefox
+// }
+
+// .searchInput {
+//   width: 100%;
+//   padding: 12px 16px;
+//   border: none;
+//   border-bottom: 1px solid #6f8493;
+//   font-size: 0.95rem;
+//   font-family: "Poppins", sans-serif;
+//   color: #333;
+//   outline: none;
+//   box-sizing: border-box;
+//   border-radius: 12px 12px 0 0;
+// }
+
+// .dropdownOption {
+//   width: 100%;
+//   background: none;
+//   border: none;
+//   padding: 12px 16px; /* Padding for each option */
+//   font-size: 0.95rem;
+//   font-family: "Poppins", sans-serif;
+//   color: #333;
+//   cursor: pointer;
+//   text-align: left;
+//   transition: background-color 0.2s ease;
+
+//   &:hover {
+//     background-color: #f8f9fa;
+//   }
+
+//   &:focus {
+//     background-color: #f8f9fa;
+//     outline: 2px solid #984b01;
+//     outline-offset: -2px;
+//   }
+
+//   &:first-child {
+//     border-radius: 0 0 0 0;
+//   }
+
+//   &:last-child {
+//     border-radius: 0 0 12px 12px;
+//   }
+// }
+
+// .emptyText {
+//   padding: 12px 16px;
+//   margin: 0;
+//   color: #999;
+//   font-style: italic;
+//   font-family: "Poppins", sans-serif;
+//   font-size: 0.95rem;
+// }
+
+// /* ------------------ Responsive tweaks ------------------ */
+
+// /* tablet */
+// @media (max-width: 1024px) {
+//   .content h1 {
+//     margin-top: 3rem;
+//   }
+//   .heroWrapper {
+//     width: calc(100% - 32px); /* slightly smaller side margin at tablet */
+//     // margin: 16px auto;
+//   }
+
+//   .searchBox {
+//     max-width: 88%;
+//     height: auto;
+//     bottom: -70px;
+//     border-radius: 40px;
+//     padding: 16px;
+//     flex-wrap: wrap;
+//     gap: 10px;
+
+//     .searchBtn {
+//       width: 100%;
+//       padding: 12px;
+//       display: flex;
+//       align-content: center;
+//       justify-content: center;
+//       align-items: stretch;
+//       flex-direction: row;
+//       flex-wrap: wrap;
+//       gap: 8px;
+//     }
+
+//     .searchBtn span {
+//       margin-top: 4px;
+//     }
+//   }
+
+//   .customDropdown {
+//     width: 100%;
+//   }
+// }
+
+// /* mobile */
+// @media (max-width: 768px) {
+//   .heroWrapper {
+//     width: calc(100% - 20px);
+//   }
+
+//   .heroInner {
+//     height: clamp(420px, 60vh, 620px);
+//   }
+
+//   .content {
+//     padding-top: clamp(
+//       50px,
+//       12vh,
+//       120px
+//     ); /* Adjusted mobile top clamp for smaller screens */
+//     padding-bottom: clamp(18px, 6vh, 60px); /* Reduced bottom for mobile fit */
+//   }
+
+//   .searchBox {
+//     position: static; /* place below hero on very small screens */
+//     transform: none;
+//     margin-top: 18px;
+//     bottom: auto;
+//     left: auto;
+
+//     width: 100%;
+//     max-width: none;
+//     height: auto;
+//     border-radius: 18px;
+//     flex-direction: column;
+//     gap: 12px;
+//     padding: 14px;
+//     margin: 30px auto;
+//     padding-bottom: 20px;
+//   }
+
+//   .customDropdown {
+//     width: 100%;
+//   }
+
+//   // Ensure scrollbar visibility and smoothness on mobile (overrides any browser defaults)
+//   .dropdownMenu {
+//     -webkit-overflow-scrolling: touch; // Reinforces smooth scrolling on iOS
+//     &::-webkit-scrollbar {
+//       width: 6px;
+//       -webkit-appearance: none;
+//       display: block; // Attempts to force visibility on iOS (limited effect, but helps)
+//     }
+
+//     &::-webkit-scrollbar-track {
+//       background: #f1f1f1;
+//     }
+
+//     &::-webkit-scrollbar-thumb {
+//       background: #888;
+//       -webkit-appearance: none;
+//       display: block; // Attempts to force thumb visibility
+//     }
+
+//     scrollbar-width: thin;
+//     scrollbar-color: #888 #f1f1f1;
+//   }
+// }
+
+// @media (max-width: 480px) {
+//   .content h1 {
+//     font-size: 1.5rem; // Or adjust as needed
+//     margin-top: 5rem;
+//   }
+//   .content p {
+//     font-family: "Poppins", sans-serif;
+//     font-weight: 400;
+//     font-size: 13px;
+//     margin: 0 0 30px 0; /* spacing below paragraph */
+//     max-width: 600px;
+//     color: #fff;
+//   }
+// }
+// .searchInputWrapper {
+//   position: relative;
+//   display: flex;
+//   align-items: center;
+//   margin-bottom: 8px; // Or whatever spacing you prefer below the input
+// }
+
+// .searchImage {
+//   position: absolute;
+//   left: 12px;
+//   top: 50%;
+//   transform: translateY(-50%);
+//   width: 20px;
+//   height: 20px;
+//   pointer-events: none;
+//   opacity: 0.6;
+// }
+
+// .searchInput {
+//   width: 100%;
+//   padding: 10px 12px 10px 45px; // Increased left padding to accommodate potentially larger image
+//   border: 1px solid #e3e0e0; // Example border; match your design
+//   border-radius: 4px; // Example; match your design
+//   font-size: 14px;
+//   box-sizing: border-box;
+
+//   &::placeholder {
+//     color: #999; // Example placeholder color
+//   }
+// }
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+
+.heroWrapper {
+  /* Control side margins here (20px each side). Change 20px if you want more/less margin */
+  width: calc(100% - 35px);
+
+  margin: 0px auto; /* centers the hero with left/right margin */
+  position: relative;
+  /* keep overflow visible so searchBox can overlap outside the heroInner */
+  overflow: visible;
+  font-family: "Poppins";
+  margin-bottom: 8rem;
+}
+
+.hero {
+  position: relative;
+  width: 100%;
+}
+
+/* visible rounded area that contains video + overlay and is clipped */
+.heroInner {
+  position: relative;
+  border-bottom-right-radius: 25px;
+  border-bottom-left-radius: 25px;
+  overflow: hidden; /* clip video + overlay to rounded corners */
+  /* Responsive height: min 520px, prefer 75vh, max 745px */
+  height: clamp(520px, 100vh, 780px);
+  align-items: center;
+  display: flex;
+  background: #111; /* fallback while video loads */
+}
+@media (max-width: 768px) {
+  .heroInner {
+    height: clamp(420px, 50vh, 620px);
+  }
+}
+/* full-bleed video inside heroInner */
+.video {
+  position: absolute;
+  inset: 0; /* top:0; right:0; bottom:0; left:0; */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    99.9deg,
+    #984b01 14.63%,
+    rgba(255, 215, 174, 0) 78.75%
+  );
+  opacity: 0.9;
+}
+
+/* main text content (kept inside heroInner so it over the overlay) */
+.content {
+  position: relative;
+  z-index: 2;
+
+  /* Removed margin-top: 10%; now absorbed into padding-top below for consistent positioning */
+  padding-top: clamp(
+    76px,
+    26vh,
+    178px
+  ); /* Top: original padding-top + 10% equiv, clamped to minimize shift */
+  padding-bottom: clamp(24px, 8vh, 100px); /* Bottom: unchanged for balance */
+  padding-left: clamp(
+    20px,
+    5vw,
+    120px
+  ); /* Horizontal: increased max/preferred for large-screen left shift */
+  padding-right: clamp(20px, 5vw, 120px);
+  color: #fff;
+
+  h1 {
+    font-family: "Poppins";
+    font-weight: 600;
+    font-size: clamp(2rem, 5vw, 4rem); /* scales on mobile/desktop */
+    max-width: 900px; /* forces 2 lines */
+    line-height: 1.2;
+    margin: 0 0 20px 0; /* spacing below heading */
+  }
+
+  p {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    line-height: 1.6;
+    margin: 0 0 30px 0; /* spacing below paragraph */
+    max-width: 600px;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .cta {
+    display: inline-block;
+    background: #ffffff4d;
+    color: #fff;
+    border: none;
+    padding: 14px 32px;
+    font-size: 14px;
+    line-height: 100%;
+    font-family: "Poppins";
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 700;
+  }
+}
+
+/* Removed margin-left: 5% from this media query; horizontal padding now handles large-screen shift */
+@media (min-width: 1524px) {
+  /* No changes needed here anymore */
+}
+
+/* SEARCH BOX — centered horizontally, overlapping bottom */
+.searchBox {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  /* overlap: adjust this negative bottom to push half outside the heroInner */
+  bottom: -78px;
+  z-index: 3;
+
+  width: 100%;
+  max-width: 1013px; /* design width */
+
+  background: #fff;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding: 30px 30px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
+
+  .searchBtn {
+    padding: 12px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: stretch;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .searchBtn span {
+    margin-top: 4px;
+  }
+
+  .searchBtn {
+    background: #984b01;
+    color: white;
+    border: none;
+    padding: 14px 34px;
+    border-radius: 50px;
+    cursor: pointer;
+    white-space: nowrap;
+    font-family: Poppins;
+    font-weight: 600;
+    font-style: SemiBold;
+    font-size: 16px;
+    leading-trim: NONE;
+    line-height: 100%;
+    letter-spacing: 0%;
+  }
+}
+
+.searchLabel {
+  width: 100%;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 1;
+  letter-spacing: 0;
+  text-transform: capitalize;
+  color: var(--D18D4B, #d18d4b);
+  margin-bottom: 12px;
+}
+
+@media (max-width: 480px) {
+  .searchLabel {
+    font-size: 14px;
+    margin-bottom: 10px;
+    padding-top: 20px;
+  }
+}
+
+/* ------------------ React Select Styles ------------------ */
+.customDropdown {
+  position: relative;
+  flex: 1;
+  min-width: 200px;
+}
+
+.selectWrapper {
+  position: relative;
+  width: 100%;
+}
+
+.searchImage {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
+  opacity: 0.6;
+  z-index: 2;
+}
+
+.react-select {
+  width: 100%;
+
+  &__control {
+    border-radius: 50px;
+    border: 1px solid #6f8493;
+    background: #fff;
+    min-height: 48px;
+    font-family: "Poppins", sans-serif;
+    font-size: 0.95rem;
+    color: #333;
+
+    &--is-focused,
+    &:hover {
+      border-color: #984b01;
+      box-shadow: 0 0 0 1px #984b01;
+    }
+
+    &--menu-is-open {
+      .react-select__input input {
+        padding-left: 16px;
+      }
+    }
+
+    .react-select__value-container {
+      padding: 2px 8px;
+      font-family: "Poppins", sans-serif;
+    }
+
+    .react-select__input-container input {
+      font-family: "Poppins", sans-serif;
+      font-size: 0.95rem;
+      color: #333;
+      padding: 0;
+      border-radius: 50px;
+    }
+
+    .react-select__indicator-separator {
+      display: none;
+    }
+
+    .react-select__dropdown-indicator {
+      color: #6f8493;
+      padding: 8px;
+    }
+  }
+
+  &__menu {
+    border-radius: 12px;
+    border: 1px solid #6f8493;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-top: 4px;
+    max-height: 200px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+
+    // Custom scrollbar styles for visibility (WebKit/Safari/iOS and Firefox)
+    &::-webkit-scrollbar {
+      width: 6px;
+      -webkit-appearance: none;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 3px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #888;
+      border-radius: 3px;
+      -webkit-appearance: none;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+
+    scrollbar-width: thin;
+    scrollbar-color: #888 #f1f1f1;
+  }
+
+  &__option {
+    padding: 12px 16px;
+    font-family: "Poppins", sans-serif;
+    font-size: 0.95rem;
+    color: #333;
+
+    &--is-focused,
+    &:hover {
+      background-color: #f8f9fa;
+    }
+
+    &--is-selected {
+      background-color: #e3f2fd;
+    }
+  }
+
+  &__no-options {
+    padding: 12px 16px;
+    color: #999;
+    font-style: italic;
+    font-family: "Poppins", sans-serif;
+    font-size: 0.95rem;
+  }
+}
+
+/* ------------------ Responsive tweaks ------------------ */
+
+/* Large desktop */
+@media (min-width: 1200px) {
+  .searchBox {
+    padding: 30px 30px;
+    gap: 16px;
+  }
+
+  .react-select__control {
+    min-height: 48px;
+    font-size: 0.95rem;
+  }
+}
+
+/* tablet */
+@media (max-width: 1024px) {
+  .content h1 {
+    margin-top: 3rem;
+  }
+  .heroWrapper {
+    width: calc(100% - 32px); /* slightly smaller side margin at tablet */
+    // margin: 16px auto;
+  }
+
+  .searchBox {
+    max-width: 88%;
+    height: auto;
+    bottom: -70px;
+    border-radius: 40px;
+    padding: 16px;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    .searchBtn {
+      width: 100%;
+      padding: 12px;
+      display: flex;
+      align-content: center;
+      justify-content: center;
+      align-items: stretch;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .searchBtn span {
+      margin-top: 4px;
+    }
+  }
+
+  .customDropdown {
+    width: 100%;
+  }
+
+  .react-select__control {
+    min-height: 44px;
+    font-size: 0.9rem;
+    border-radius: 40px;
+  }
+
+  .react-select__input-container input {
+    font-size: 0.9rem;
+    border-radius: 40px;
+  }
+
+  .react-select__menu {
+    border-radius: 10px;
+    overflow-y: auto;
+  }
+
+  .react-select__option {
+    padding: 10px 14px;
+    font-size: 0.9rem;
+  }
+}
+
+/* mobile */
+@media (max-width: 768px) {
+  .heroWrapper {
+    width: calc(100% - 20px);
+  }
+
+  .heroInner {
+    height: clamp(420px, 60vh, 620px);
+  }
+
+  .content {
+    padding-top: clamp(
+      50px,
+      12vh,
+      120px
+    ); /* Adjusted mobile top clamp for smaller screens */
+    padding-bottom: clamp(18px, 6vh, 60px); /* Reduced bottom for mobile fit */
+  }
+
+  .searchBox {
+    position: static; /* place below hero on very small screens */
+    transform: none;
+    margin-top: 18px;
+    bottom: auto;
+    left: auto;
+
+    width: 100%;
+    max-width: none;
+    height: auto;
+    border-radius: 18px;
+    flex-direction: column;
+    gap: 12px;
+    padding: 14px;
+    margin: 30px auto;
+    padding-bottom: 20px;
+  }
+
+  .customDropdown {
+    width: 100%;
+  }
+
+  .react-select__control {
+    min-height: 40px;
+    font-size: 0.85rem;
+    border-radius: 18px;
+  }
+
+  .react-select__input-container input {
+    font-size: 0.85rem;
+    border-radius: 18px;
+  }
+
+  .react-select__dropdown-indicator {
+    padding: 6px;
+  }
+
+  // Ensure scrollbar visibility and smoothness on mobile (overrides any browser defaults)
+  .react-select__menu {
+    -webkit-overflow-scrolling: touch;
+    border-radius: 8px;
+    max-height: 180px;
+    overflow-y: auto;
+    &::-webkit-scrollbar {
+      width: 6px;
+      -webkit-appearance: none;
+      display: block; // Attempts to force visibility on iOS (limited effect, but helps)
+    }
+
+    &::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #888;
+      -webkit-appearance: none;
+      display: block; // Attempts to force thumb visibility
+    }
+
+    scrollbar-width: thin;
+    scrollbar-color: #888 #f1f1f1;
+  }
+
+  .react-select__option {
+    padding: 10px 12px;
+    font-size: 0.85rem;
+  }
+
+  .react-select__no-options {
+    font-size: 0.85rem;
+    padding: 10px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .content h1 {
+    font-size: 1.5rem; // Or adjust as needed
+    margin-top: 5rem;
+  }
+  .content p {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    margin: 0 0 30px 0; /* spacing below paragraph */
+    max-width: 600px;
+    color: #fff;
+  }
+
+  .searchBox {
+    padding: 12px;
+    gap: 10px;
+    border-radius: 16px;
+  }
+
+  .react-select__control {
+    min-height: 38px;
+    font-size: 0.8rem;
+    border-radius: 16px;
+  }
+
+  .react-select__input-container input {
+    font-size: 0.8rem;
+    border-radius: 16px;
+  }
+
+  .react-select__menu {
+    border-radius: 6px;
+    max-height: 160px;
+    overflow-y: auto;
+  }
+
+  .react-select__option {
+    padding: 8px 10px;
+    font-size: 0.8rem;
+  }
+}

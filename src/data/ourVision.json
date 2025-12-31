@@ -1,0 +1,23 @@
+[
+  {
+    "title": "Our Mission",
+    "description": "Our mission is to connect clients with top interior designers and 3D artists, making it effortless to create personalized, inspiring, and functional spaces.",
+    "image": "/assets/images/catagory/our-mission-interior-design-team.webp",
+    "alt": "Interior design team collaborating to create personalized and inspiring home spaces",
+    "imageDescription": "A group of professional interior designers and 3D artists collaborating on creative home design projects that reflect innovation and functionality."
+  },
+  {
+    "title": "Our Vision",
+    "description": "Our vision is to become the leading platform for interior design, empowering homeowners and businesses to discover, collaborate, and transform their spaces creatively.",
+    "image": "/assets/images/catagory/our-vision-interior-design-concept.webp",
+    "alt": "Creative interior design concept representing modern vision and innovation",
+    "imageDescription": "A modern workspace showing interior design concepts and digital visualization symbolizing innovation and the vision for creative space transformation."
+  },
+  {
+    "title": "Our Core Values",
+    "description": "We value trust, transparency, creativity, and excellence, ensuring clients and designers collaborate seamlessly to deliver beautiful, innovative, and high-quality interior solutions.",
+    "image": "/assets/images/catagory/our-core-values-interior-design-collaboration.webp",
+    "alt": "Interior designers collaborating on creative and high-quality design solutions",
+    "imageDescription": "Design professionals discussing ideas and color palettes that represent trust, creativity, and excellence in interior design collaboration."
+  }
+]

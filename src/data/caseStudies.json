@@ -1,0 +1,38 @@
+[
+  {
+    "title": "Home Spaces",
+    "description": "Discover expert interior designers who create warm, stylish, and functional homes — making every corner reflect comfort, beauty, and modern living.",
+    "image": "/assets/images/catagory/modern-home-interior-design-living-room.webp",
+    "alt": "Modern home interior design with cozy living area and stylish furniture",
+    "imageDescription": "A beautifully designed modern home interior featuring cozy, elegant, and functional living spaces created by expert designers.",
+    "link": "/designers?propertyType=Smart+Home",
+    "ctaText": "View Agencies →"
+  },
+  {
+    "title": "Office Style",
+    "description": "Explore talented designers who craft modern, efficient, and inspiring office spaces that boost team productivity and reflect your unique brand identity.",
+    "image": "/assets/images/office/modern-office-interior-design-workspace.webp",
+    "alt": "Modern office interior design with elegant workspace and professional layout",
+    "imageDescription": "A sleek office interior featuring contemporary furniture and inspiring workspace design that enhances productivity and brand image.",
+    "link": "/designers?propertyType=Office+Space",
+    "ctaText": "View Agencies →"
+  },
+  {
+    "title": "Retail Magic",
+    "description": "Find creative retail interior experts who design eye-catching stores, boutiques, and showrooms that attract customers and enhance your brand experience.",
+    "image": "/assets/images/catagory/modern-retail-store-interior-design.webp",
+    "alt": "Modern retail store interior design with attractive lighting and product displays",
+    "imageDescription": "An innovative retail interior design showcasing stylish store layouts, perfect lighting, and appealing product presentation for maximum customer engagement.",
+    "link": "/designers?propertyType=Retail+Store",
+    "ctaText": "View Agencies →"
+  },
+  {
+    "title": "Luxe Living",
+    "description": "Connect with premium designers who craft luxury interiors with modern aesthetics, timeless elegance, and a strong focus on personalized lifestyle spaces.",
+    "image": "/assets/images/catagory/luxury-apartment-interior-design.webp",
+    "alt": "Luxury apartment interior with elegant decor and modern furniture design",
+    "imageDescription": "A luxurious apartment interior that blends elegance and comfort, featuring premium materials, modern aesthetics, and refined living design.",
+    "link": "/designers?propertyType=Luxury+Apartment",
+    "ctaText": "View Agencies →"
+  }
+]

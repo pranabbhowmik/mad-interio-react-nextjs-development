@@ -1,0 +1,159 @@
+/* inputform.module.scss (Unchanged from previous - styles adapted from hero.module.scss for filter context) */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+
+/* ------------------ Custom Dropdown Styles ------------------ */
+.customDropdown {
+  position: relative;
+  width: 100%; /* Full width in filter context */
+}
+
+.dropdownTrigger {
+  width: 100%;
+  background: #fff;
+  border: 1px solid #6f8493;
+  border-radius: 50px; /* Rounded corners like inputs */
+  padding: 12px 16px; /* Padding for button-like feel */
+  font-size: 0.95rem;
+  font-family: "Poppins", sans-serif;
+  color: #333;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  outline: none;
+  transition: border-color 0.2s ease;
+
+  &:hover,
+  &:focus {
+    border-color: #984b01;
+  }
+}
+
+.dropdownArrow {
+  font-size: 0.8rem;
+  color: #6f8493;
+  transition: transform 0.2s ease;
+
+  // Rotate arrow when open (optional enhancement)
+  // .customDropdown[aria-expanded="true"] & { transform: rotate(180deg); }
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border: 1px solid #6f8493;
+  border-radius: 12px; /* Rounded corners for the dropdown div */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  max-height: 200px;
+  overflow-y: auto;
+  margin-top: 4px;
+}
+
+.searchInputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px; // Or whatever spacing you prefer below the input
+}
+
+.searchImage {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 10px 12px 10px 45px; // Increased left padding to accommodate potentially larger image
+  border: none;
+  border-bottom: 1px solid #6f8493;
+  border-radius: 12px 12px 0 0;
+  font-size: 0.95rem;
+  font-family: "Poppins", sans-serif;
+  color: #333;
+  outline: none;
+  box-sizing: border-box;
+
+  &::placeholder {
+    color: #999; // Example placeholder color
+  }
+}
+
+.dropdownOption {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 12px 16px; /* Padding for each option */
+  font-size: 0.95rem;
+  font-family: "Poppins", sans-serif;
+  color: #333;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: #f8f9fa;
+  }
+
+  &:first-child {
+    border-radius: 0 0 0 0;
+  }
+
+  &:last-child {
+    border-radius: 0 0 12px 12px;
+  }
+}
+
+.emptyText {
+  padding: 12px 16px;
+  margin: 0;
+  color: #999;
+  font-style: italic;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.95rem;
+}
+
+/* ------------------ Responsive tweaks ------------------ */
+
+/* Tablet and below: Ensure full width and no overlaps */
+@media (max-width: 1024px) {
+  .customDropdown {
+    width: 100%;
+  }
+
+  .dropdownMenu {
+    max-height: 180px; /* Slightly smaller on tablet */
+  }
+}
+
+/* Mobile: Compact padding */
+@media (max-width: 768px) {
+  .dropdownTrigger {
+    padding: 10px 14px;
+    font-size: 0.9rem;
+  }
+
+  .searchInput {
+    padding: 8px 10px 8px 40px;
+    font-size: 0.9rem;
+  }
+
+  .dropdownOption {
+    padding: 10px 14px;
+    font-size: 0.9rem;
+  }
+
+  .dropdownMenu {
+    max-height: 160px;
+  }
+}

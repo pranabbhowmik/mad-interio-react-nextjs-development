@@ -1,0 +1,45 @@
+# ============================
+# MadInterio Robots.txt
+# Project: MadInterio - Interior Design Directory Platform
+# Base URL: https://madinterio.com
+# Environment: Production
+# Purpose: Control how search engines crawl and index the website
+# ============================
+
+# ----------------------------
+# Allow all major search engines
+# ----------------------------
+User-agent: *
+Allow: /
+
+# ----------------------------
+# Disallow restricted or sensitive routes
+# ----------------------------
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /api/
+Disallow: /_next/
+Disallow: /private/
+Disallow: /tmp/
+Disallow: /search/
+
+# ----------------------------
+# Block specific bots known for aggressive or unnecessary crawling
+# ----------------------------
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+# ----------------------------
+# Sitemap location (important for SEO)
+# ----------------------------
+Sitemap: https://madinterio.com/sitemap.xml
+
+# ----------------------------
+# Notes:
+# - Allow all standard bots (Googlebot, Bingbot, etc.)
+# - Block harmful or bandwidth-heavy crawlers
+# - Sitemap helps search engines discover content faster
+# ----------------------------

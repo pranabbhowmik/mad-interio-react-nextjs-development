@@ -1,0 +1,117 @@
+.cta {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border-radius: 14px;
+  padding: 3rem 2rem;
+  min-height: 292px;
+  width: 100%;
+  max-width: 1040px;
+  overflow: hidden;
+  margin: -12rem auto 0 auto; /* Centers horizontally */
+  // margin-top: -60px; /* Pulls CTA up to overlap with testimonial */
+  // margin-bottom: 40px; /* Space before footer */
+  z-index: 10; /* Ensure it sits above testimonial */
+  left: 50%; // move to horizontal center
+  transform: translateX(-50%); // shift back by half width
+  // background image wrapper
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url("/assets/images/others/perfect-interior-design-partner.webp")
+      center/cover no-repeat;
+    transform: scaleX(-1); // Flip the background
+    z-index: 0;
+  }
+
+  @media (max-width: 768px) {
+    min-height: 220px;
+    padding: 1.5rem;
+
+    margin-top: -40px;
+    margin-bottom: 30px;
+    max-width: 95%;
+  }
+
+  @media (max-width: 480px) {
+    min-height: 180px;
+    padding: 1rem;
+    margin-top: -30px;
+    margin-bottom: 20px;
+    max-width: 92%;
+    position: relative;
+    left: 0%; // move to horizontal center
+    transform: translateX(0%);
+  }
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  border-radius: 14px;
+  background: linear-gradient(
+    90deg,
+    rgba(206, 136, 68, 0.9) 20%,
+    rgba(255, 215, 174, 0.2) 80%
+  );
+  z-index: 1;
+}
+
+.ctaContent {
+  position: relative;
+  z-index: 2; // above bg + overlay
+  max-width: 600px;
+  color: #fff;
+  text-align: left;
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 1.5rem;
+    color: #fff;
+
+    @media (max-width: 768px) {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 1.2rem;
+      margin-bottom: 0.8rem;
+    }
+  }
+}
+
+.ctaButton {
+  background: #984b01;
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 0.8rem 1.5rem;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  &:hover {
+    background: #000;
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 480px) {
+    padding: 0.6rem 1.2rem;
+    font-size: 13px;
+  }
+}
+
+// Additional wrapper styling for proper positioning
+.cta-position-wrapper {
+  position: relative;
+  z-index: 5;
+}

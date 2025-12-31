@@ -1,0 +1,375 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: all 0.3s ease; // Smooth transition for scroll changes
+
+  // Fixed scrolled state
+  &.scrolled {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin: 0 !important; // Remove auto margin
+    background: rgba(
+      255,
+      255,
+      255,
+      0.95
+    ); // Slight transparency for overlay effect
+    backdrop-filter: blur(10px); // Optional: modern blur effect
+
+    .navbar {
+      border-radius: 0 !important; // Remove rounded corners for full width
+      margin: 0 !important;
+      width: 100% !important; // Force full width
+      padding: 0.6rem 2rem; // Slightly compact padding
+
+      @media screen and (min-width: 768px) {
+        width: 100% !important; // Override the 80% on scroll
+        padding: 0.6rem 5%; // Use % for consistent edge spacing
+      }
+    }
+
+    .logo {
+      margin-top: -2px; // Slightly tighter on scroll
+
+      img {
+        width: 90px; // Compact logo
+      }
+    }
+
+    .navLinks {
+      padding-top: 10px; // Compact links
+    }
+
+    .contactBtn {
+      padding: 0.6rem 1rem; // Compact button
+    }
+  }
+}
+
+.navbar {
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  margin: 1rem auto;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  width: 100%; /* default for mobile */
+}
+
+/* Apply width: 80% for tablet and larger screens (non-scrolled) */
+@media screen and (min-width: 768px) {
+  .navbar {
+    width: 80%;
+  }
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: -4px;
+
+  img {
+    width: 100px;
+  }
+
+  span {
+    font-weight: 600;
+    color: #9b6b2f;
+    font-size: 1rem;
+  }
+}
+
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding-top: 14px;
+  list-style: none;
+
+  li a {
+    text-decoration: none;
+    color: #984b01;
+    font-size: 16px;
+    line-height: 100%;
+    font-weight: 500;
+  }
+}
+
+.contactBtn {
+  background: #984b01;
+  color: #fff !important;
+  padding: 0.8rem 1.2rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  transition: background 0.3s ease;
+  border-radius: 100px;
+
+  &:hover {
+    background: #5a2e08;
+  }
+}
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  cursor: pointer;
+  width: 25px;
+  height: 20px;
+  z-index: 1100;
+
+  span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background: #88450b;
+    border-radius: 3px;
+    margin: 4px 0;
+    transition: 0.4s;
+  }
+
+  &.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  &.active span:nth-child(2) {
+    opacity: 0;
+  }
+  &.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .navbar {
+    background: rgb(35 36 37 / 44%);
+    width: 90%;
+    margin: 0.7rem auto;
+  }
+
+  .header.scrolled {
+    .navbar {
+      width: 100% !important;
+      margin: 0 auto !important;
+      padding: 0.6rem 2rem;
+      background-color: #fff;
+    }
+  }
+
+  .navLinks {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 70vw;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    padding: 2rem 1.5rem;
+    gap: 2rem;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.4s ease;
+    transform: translateX(100%);
+    z-index: 999;
+  }
+
+  .navLinks.open {
+    transform: translateX(0);
+  }
+
+  .hamburger {
+    display: block;
+    /* Removed position: fixed, top, right to prevent stickiness and overlap */
+    /* Now positioned via flex (space-between pushes it right) */
+
+    span {
+      background: #fff;
+    }
+  }
+  .header.scrolled {
+    .hamburger {
+      span {
+        background: #88450b;
+      }
+    }
+  }
+
+  .hamburger.active {
+    /* Removed top/right overrides */
+
+    span {
+      background: #000;
+    }
+  }
+}
+
+/* Extra small devices (below 640px) */
+@media (max-width: 640px) {
+  .navbar {
+    padding: 0.6rem 1.6rem;
+  }
+
+  .header.scrolled {
+    .navbar {
+      padding: 0.6rem 1.6rem;
+    }
+  }
+
+  .logo img {
+    width: 80px;
+  }
+
+  .contactBtn {
+    padding: 0.7rem 1rem;
+    font-size: 15px;
+  }
+
+  .navLinks {
+    width: 80vw;
+    padding: 1.5rem 1rem;
+    gap: 1.5rem;
+  }
+}
+
+/* Tablet (769px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .navbar {
+    padding: 0.8rem 1.5rem;
+  }
+
+  .navLinks {
+    gap: 1.5rem;
+  }
+
+  .logo img {
+    width: 90px;
+  }
+
+  .contactBtn {
+    padding: 0.7rem 1.1rem;
+  }
+}
+
+/* Bottom Navigation Styles - Hidden on Desktop, Shown on Mobile/Tablet */
+.bottomNav {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+  z-index: 1000;
+  padding: 0.5rem 0;
+  font-family: "Poppins", sans-serif;
+
+  ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+
+  li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    flex: 1;
+
+    a {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.25rem;
+      text-decoration: none;
+      color: #984b01;
+      font-size: 10px;
+      font-weight: 500;
+      padding: 0.5rem;
+      transition: color 0.3s ease;
+
+      &:hover,
+      &:active {
+        color: #5a2e08;
+      }
+
+      svg {
+        color: #984b01;
+      }
+    }
+  }
+
+  .contactBottomBtn {
+    color: #fff !important;
+
+    svg {
+      color: #fff !important;
+    }
+
+    span {
+      color: #fff !important;
+    }
+
+    background: #984b01;
+    border-radius: 50%;
+    padding: 1rem !important;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0;
+
+    &:hover,
+    &:active {
+      background: #5a2e08;
+    }
+  }
+}
+
+/* Show Bottom Nav on Mobile and Tablet (up to 1024px) */
+@media (max-width: 1024px) {
+  .bottomNav {
+    display: block;
+  }
+
+  /* Keep top navbar visible on mobile (no display: none on header) */
+}
+
+/* Ensure bottom nav adjusts for extra small screens */
+@media (max-width: 640px) {
+  .bottomNav {
+    padding: 0.7rem 0;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+
+    li a {
+      font-size: 9px;
+      padding: 0.25rem;
+    }
+
+    .contactBottomBtn {
+      width: 42px;
+      height: 42px;
+      padding: 0.75rem !important;
+    }
+  }
+}

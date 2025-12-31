@@ -1,0 +1,62 @@
+.loaderWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  width: 100%;
+}
+
+.ring {
+  position: relative;
+  width: 70px;
+  height: 70px;
+  border: 6px solid transparent;
+  border-top: 6px solid #ff7b29; /* orange accent */
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    border: 6px solid transparent;
+    border-top-color: #ffc107;
+    animation: spin 1.5s linear infinite;
+  }
+
+  &::before {
+    width: 55px;
+    height: 55px;
+    top: 6px;
+    left: 6px;
+    animation-duration: 1.3s;
+  }
+
+  &::after {
+    width: 40px;
+    height: 40px;
+    top: 15px;
+    left: 15px;
+    animation-duration: 1.1s;
+  }
+}
+
+.text {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #555;
+  letter-spacing: 0.5px;
+  font-family: "Poppins", sans-serif;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
