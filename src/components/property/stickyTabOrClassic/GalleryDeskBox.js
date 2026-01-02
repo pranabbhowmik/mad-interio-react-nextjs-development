@@ -46,7 +46,7 @@ const GalleryDeskBox = ({ gallery }) => {
       </Gallery>
       <Row className="gy-3 px-2 px-md-3 py-2 py-md-3">
         <Col xs="12" className="text-center">
-          <a href={`/gallery/${id}`}>
+          <a target="_blank" href={`/gallery/${id}`}>
             <button type="button" className="btn btn-solid">
               View More →
             </button>

@@ -75,21 +75,57 @@ const InputForm = ({
     return <div className="text-center p-3">Loading filter options...</div>;
   }
 
-  /* ---------- react-select styles ---------- */
+  /* ---------- react-select styles (updated to match Hero) ---------- */
   const selectStyles = {
     control: (base, state) => ({
       ...base,
+      minHeight: 44, // Slightly smaller for filter context
       borderRadius: 12,
-      minHeight: 44,
-      borderColor: state.isFocused ? "#984b01" : "#6f8493",
-      boxShadow: state.isFocused ? "0 0 0 1px #984b01" : "none",
+      borderWidth: 2,
+      borderColor: state.isFocused ? "#984b01" : "#e4e7ec",
+      backgroundColor: "#ffffff",
+      boxShadow: state.isFocused ? "0 0 0 4px rgba(152, 75, 1, 0.18)" : "none",
+      transition: "all 0.2s ease",
       "&:hover": { borderColor: "#984b01" },
       fontFamily: "Poppins",
+      cursor: "pointer",
+    }),
+    valueContainer: (base) => ({
+      ...base,
+      padding: "0 16px",
+    }),
+    placeholder: (base) => ({
+      ...base,
+      color: "#667085",
+      fontWeight: 500,
+    }),
+    indicatorSeparator: () => ({
+      display: "none",
+    }),
+    dropdownIndicator: (base, state) => ({
+      ...base,
+      color: state.isFocused ? "#984b01" : "#6f8493",
+      "&:hover": {
+        color: "#984b01",
+      },
     }),
     menu: (base) => ({
       ...base,
       zIndex: 9999,
       borderRadius: 12,
+
+      overflowY: "auto",
+    }),
+    option: (base, state) => ({
+      ...base,
+      backgroundColor: state.isSelected
+        ? "#984b01"
+        : state.isFocused
+        ? "rgba(152, 75, 1, 0.12)"
+        : "#fff",
+      color: state.isSelected ? "#fff" : "#101828",
+      cursor: "pointer",
+      fontFamily: "Poppins",
     }),
   };
 

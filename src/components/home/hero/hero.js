@@ -469,12 +469,10 @@ export default function Hero() {
       borderRadius: 999,
       borderWidth: 2,
 
-      /* ✅ DEFAULT light grey */
       borderColor: state.isFocused ? "#984b01" : "#e4e7ec",
 
       backgroundColor: "#ffffff",
 
-      /* ✅ Focus ring */
       boxShadow: state.isFocused ? "0 0 0 4px rgba(152, 75, 1, 0.18)" : "none",
 
       transition: "all 0.2s ease",
@@ -515,6 +513,7 @@ export default function Hero() {
       borderRadius: 16,
       marginTop: 8,
       zIndex: 9999,
+      overflowY: "auto",
     }),
 
     option: (base, state) => ({
