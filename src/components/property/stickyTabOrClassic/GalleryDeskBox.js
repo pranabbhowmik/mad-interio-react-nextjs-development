@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Gallery, Item } from "react-photoswipe-gallery";
 import { Col, Row } from "reactstrap";
 import Img from "@/utils/BackgroundImageRatio";
@@ -10,7 +10,26 @@ const GalleryDeskBox = ({ gallery }) => {
   // Safety check
   if (!galleryImages.length) return null;
 
-  const displayedImages = galleryImages.slice(0, 3);
+  const [isMobile, setIsMobile] = useState(false);
+  const [displayedImages, setDisplayedImages] = useState([]);
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      const mobileBreakpoint = 768; // Bootstrap md breakpoint
+      setIsMobile(window.innerWidth < mobileBreakpoint);
+    };
+
+    checkScreenSize();
+    window.addEventListener("resize", checkScreenSize);
+
+    return () => window.removeEventListener("resize", checkScreenSize);
+  }, []);
+
+  useEffect(() => {
+    setDisplayedImages(
+      isMobile ? galleryImages.slice(0, 4) : galleryImages.slice(0, 3)
+    );
+  }, [isMobile, galleryImages]);
 
   return (
     <div className="desc-box px-2" id="gallery">
