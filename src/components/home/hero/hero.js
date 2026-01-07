@@ -468,38 +468,28 @@ export default function Hero() {
       minHeight: 56,
       borderRadius: 999,
       borderWidth: 2,
-
       borderColor: state.isFocused ? "#984b01" : "#e4e7ec",
-
       backgroundColor: "#ffffff",
-
       boxShadow: state.isFocused ? "0 0 0 4px rgba(152, 75, 1, 0.18)" : "none",
-
       transition: "all 0.2s ease",
-
       "&:hover": {
         borderColor: "#984b01",
       },
-
       fontFamily: "Poppins",
       cursor: "pointer",
     }),
-
     valueContainer: (base) => ({
       ...base,
       padding: "0 16px",
     }),
-
     placeholder: (base) => ({
       ...base,
       color: "#667085",
       fontWeight: 500,
     }),
-
     indicatorSeparator: () => ({
       display: "none",
     }),
-
     dropdownIndicator: (base, state) => ({
       ...base,
       color: state.isFocused ? "#984b01" : "#6f8493",
@@ -507,7 +497,6 @@ export default function Hero() {
         color: "#984b01",
       },
     }),
-
     menu: (base) => ({
       ...base,
       borderRadius: 16,
@@ -515,16 +504,24 @@ export default function Hero() {
       zIndex: 9999,
       overflowY: "auto",
     }),
-
+    // ✅ UPDATED: Strengthened selected state with explicit theme colors (overrides any defaults)
     option: (base, state) => ({
       ...base,
+      padding: "12px 16px", // Consistent padding
       backgroundColor: state.isSelected
-        ? "#984b01"
+        ? "#984b01" // Theme orange for selected
         : state.isFocused
-        ? "rgba(152, 75, 1, 0.12)"
-        : "#fff",
-      color: state.isSelected ? "#fff" : "#101828",
+        ? "rgba(152, 75, 1, 0.12)" // Light orange hover/focus
+        : "#fff", // Default white
+      color: state.isSelected
+        ? "#fff" // White text on selected
+        : "#101828", // Dark text otherwise
+      fontFamily: "Poppins, sans-serif",
+      fontSize: "0.95rem",
       cursor: "pointer",
+      // Extra: Ensure no blue bleed-through
+      border: "none",
+      outline: "none",
     }),
   };
 
@@ -562,8 +559,19 @@ export default function Hero() {
         const apiCities = data.cities || [];
         const apiPropertyTypes = data.propertyTypes || [];
 
-        setCities(["All Cities", ...apiCities.map((c) => c.trim())]);
-        setRoomsTypes(["All Property Types", ...apiPropertyTypes]);
+        // ✅ BONUS: Normalize to avoid duplicates (e.g., trim and unique)
+        const uniqueCities = [
+          ...new Set(["All Cities", ...apiCities.map((c) => c.trim())]),
+        ];
+        const uniqueRooms = [
+          ...new Set([
+            "All Property Types",
+            ...apiPropertyTypes.map((t) => t.trim()),
+          ]),
+        ];
+
+        setCities(uniqueCities);
+        setRoomsTypes(uniqueRooms);
       } catch (err) {
         console.error("Error fetching master data:", err);
       }
@@ -612,7 +620,7 @@ export default function Hero() {
                 onChange={selectCity}
                 placeholder="All Cities"
                 isSearchable
-                styles={heroSelectStyles} // ✅ ADD THIS
+                styles={heroSelectStyles}
                 onMenuOpen={() => setCityMenuOpen(true)}
                 onMenuClose={() => setCityMenuOpen(false)}
                 noOptionsMessage={() => "No matching cities found"}
@@ -630,7 +638,7 @@ export default function Hero() {
                 onChange={selectRooms}
                 placeholder="All Property Types"
                 isSearchable
-                styles={heroSelectStyles} // ✅ ADD THIS
+                styles={heroSelectStyles}
                 onMenuOpen={() => setRoomsMenuOpen(true)}
                 onMenuClose={() => setRoomsMenuOpen(false)}
                 noOptionsMessage={() => "No matching property types found"}

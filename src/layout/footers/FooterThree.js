@@ -14,7 +14,6 @@ const FooterThree = () => {
 
   return (
     <footer>
-      {/* ✅ Hide CTA only on contact page and mobile/tablet */}
       {pathname !== "/contact" && (
         <div id="footer-cta-section">
           <CtaSection />

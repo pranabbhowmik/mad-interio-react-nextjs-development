@@ -32,10 +32,12 @@ const BodyContent = () => {
   return (
     <>
       <Hero />
-      <HowItWorks />
-      <ParallaxCards />
-      <FeatureSection />
-      <FeaturePropertySection />
+      <div>
+        <HowItWorks />
+        <ParallaxCards />
+        <FeatureSection />
+        <FeaturePropertySection />
+      </div>
 
       <div
         style={{

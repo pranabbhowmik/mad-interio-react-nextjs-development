@@ -7,7 +7,7 @@ const SearchBarDeskBox = ({ fix, about }) => {
   const aboutData = about?.aboutUs;
   const property = about?.galleryImages; // gallery images
 
-  const hasGallery = Array.isArray(property) && property.length > 0;
+  // const hasGallery = Array.isArray(property) && property.length > 0;
 
   return (
     <div className="desc-box" id="navigation">
@@ -30,12 +30,12 @@ const SearchBarDeskBox = ({ fix, about }) => {
               <a href="#details">details</a>
             </li>
 
-            {/* ✅ Show only if gallery exists */}
+            {/* ✅ Show only if gallery exists
             {hasGallery && (
               <li>
                 <a href="#gallery">Gallery</a>
               </li>
-            )}
+            )} */}
           </ul>
         </Container>
       </div>

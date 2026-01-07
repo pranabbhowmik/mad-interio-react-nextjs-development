@@ -49,7 +49,7 @@ const TopTitle = ({ details, singleData }) => {
             <div className="d-flex">
               <h2 className="mb-0">{toTitleCase(businessName)}</h2>
             </div>
-            <p className="mt-1">{details?.address || "N/A"}</p>
+            <p className="mt-1">{details?.address}</p>
             <ul>{/* your other list items remain unchanged */}</ul>
           </div>
 

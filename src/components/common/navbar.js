@@ -32,7 +32,7 @@ export default function Navbar() {
           <div className={styles.logo}>
             <a href="/">
               <img
-                src="/assets/images/logo/mad-interiologo.png"
+                src="/assets/images/logo/madinterio-footer.svg"
                 alt="Connect with top interior designers for premium home decor."
                 loading="lazy"
                 // title="MADINTERIO - Top Interior Designers Network Logo"

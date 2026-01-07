@@ -1,122 +1,85 @@
 "use client";
 import React from "react";
+import ReactPaginate from "react-paginate";
 
 const Pagination = ({ toPage, gridDispatch, totalPages }) => {
   if (totalPages <= 1) return null;
 
-  const getVisiblePages = () => {
-    const pages = [];
-    const delta = 1; // Show up to 3 pages: current-1, current, current+1 (adjusted for edges)
-
-    let startPage = Math.max(1, toPage - delta);
-    let endPage = Math.min(totalPages, toPage + delta);
-
-    // Ensure at least 3 pages if possible, but adjust for total
-    if (endPage - startPage + 1 < 3 && totalPages >= 3) {
-      if (toPage === 1) {
-        endPage = Math.min(3, totalPages);
-      } else if (toPage === totalPages) {
-        startPage = Math.max(totalPages - 2, 1);
-      } else {
-        // Center around current
-        startPage = toPage - 1;
-        endPage = toPage + 1;
-      }
-    }
-
-    for (let i = startPage; i <= endPage; i++) {
-      pages.push(i);
-    }
-
-    return pages;
+  const handlePageClick = ({ selected }) => {
+    gridDispatch({ type: "toPage", payload: selected + 1 });
   };
 
-  const pages = getVisiblePages();
-
-  const goToPage = (page) => {
-    if (page >= 1 && page <= totalPages) {
-      gridDispatch({ type: "toPage", payload: page });
-    }
+  // Custom chunk navigation (<< and >> for jumping ~10 pages)
+  const handlePrevChunk = () => {
+    const newPage = Math.max(1, toPage - 10);
+    gridDispatch({ type: "toPage", payload: newPage });
   };
 
-  const isActive = (pageNum) => pageNum === toPage;
+  const handleNextChunk = () => {
+    const newPage = Math.min(totalPages, toPage + 10);
+    gridDispatch({ type: "toPage", payload: newPage });
+  };
 
-  const showPrevChunk = toPage > 1 && Math.max(1, toPage - 9) < toPage - 1;
-  const showNextChunk =
-    toPage < totalPages && Math.min(totalPages, toPage + 9) > toPage + 1;
+  const showPrevChunk = toPage > 10; // Show if more than 10 pages before
+  const showNextChunk = toPage < totalPages - 9; // Show if more than 10 pages after
 
   return (
     <nav className="theme-pagination">
-      <ul className="pagination">
-        {/* Previous chunk button (<<) */}
+      <div className="d-flex align-items-center justify-content-end">
+        {/* Custom Previous Chunk (<<) */}
         {showPrevChunk && (
-          <li className="page-item">
-            <div
+          <div className="page-item me-1">
+            <button
               className="page-link"
               aria-label="Previous 10 Pages"
-              onClick={() => goToPage(Math.max(1, toPage - 9))}
+              onClick={handlePrevChunk}
             >
               {"<<"}
-            </div>
-          </li>
+            </button>
+          </div>
         )}
 
-        {/* Previous button (<) */}
-        {toPage > 1 && (
-          <li className="page-item">
-            <div
-              className="page-link"
-              aria-label="Previous Page"
-              onClick={() => goToPage(toPage - 1)}
-            >
+        {/* ReactPaginate Core */}
+        <ReactPaginate
+          pageCount={totalPages}
+          forcePage={toPage - 1}
+          onPageChange={handlePageClick}
+          previousLabel={
+            <span aria-label="Previous Page" className="page-link">
               {"<"}
-            </div>
-          </li>
-        )}
-
-        {/* Visible page numbers (up to 3 centered around current) */}
-        {pages.map((pageNum) => (
-          <li
-            key={pageNum}
-            className={`page-item ${isActive(pageNum) ? "active" : ""}`}
-          >
-            <div
-              className="page-link"
-              role="button"
-              tabIndex={0}
-              onClick={() => goToPage(pageNum)}
-            >
-              {pageNum}
-            </div>
-          </li>
-        ))}
-
-        {/* Next button (>) */}
-        {toPage < totalPages && (
-          <li className="page-item">
-            <div
-              className="page-link"
-              aria-label="Next Page"
-              onClick={() => goToPage(toPage + 1)}
-            >
+            </span>
+          }
+          nextLabel={
+            <span aria-label="Next Page" className="page-link">
               {">"}
-            </div>
-          </li>
-        )}
+            </span>
+          }
+          breakLabel={<span className="page-link">...</span>}
+          pageRangeDisplayed={3} // Show up to 3 pages around current
+          marginPagesDisplayed={1} // Always show first/last
+          containerClassName="pagination mb-0"
+          pageClassName="page-item"
+          pageLinkClassName="page-link"
+          activeClassName="active"
+          disabledClassName="disabled"
+          previousClassName="page-item"
+          nextClassName="page-item"
+          breakClassName="page-item"
+        />
 
-        {/* Next chunk button (>>) */}
+        {/* Custom Next Chunk (>>) */}
         {showNextChunk && (
-          <li className="page-item">
-            <div
+          <div className="page-item ms-1">
+            <button
               className="page-link"
               aria-label="Next 10 Pages"
-              onClick={() => goToPage(Math.min(totalPages, toPage + 9))}
+              onClick={handleNextChunk}
             >
               {">>"}
-            </div>
-          </li>
+            </button>
+          </div>
         )}
-      </ul>
+      </div>
     </nav>
   );
 };

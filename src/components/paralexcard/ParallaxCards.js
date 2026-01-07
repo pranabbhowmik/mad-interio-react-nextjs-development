@@ -1,3 +1,4 @@
+// ParallaxCards.js (updated)
 import { useEffect, useRef } from "react";
 import { useScroll } from "framer-motion";
 import Lenis from "lenis";
@@ -16,11 +17,37 @@ export default function ParallaxCards() {
 
   useEffect(() => {
     const lenis = new Lenis();
+    let dropdownOpenCount = 0;
+
+    const handleDropdownOpen = () => {
+      dropdownOpenCount++;
+      if (dropdownOpenCount > 0) {
+        lenis.stop();
+      }
+    };
+
+    const handleDropdownClose = () => {
+      dropdownOpenCount--;
+      if (dropdownOpenCount <= 0) {
+        dropdownOpenCount = 0;
+        lenis.start();
+      }
+    };
+
+    window.addEventListener("dropdownOpen", handleDropdownOpen);
+    window.addEventListener("dropdownClose", handleDropdownClose);
+
     function raf(time) {
       lenis.raf(time);
       requestAnimationFrame(raf);
     }
     requestAnimationFrame(raf);
+
+    return () => {
+      window.removeEventListener("dropdownOpen", handleDropdownOpen);
+      window.removeEventListener("dropdownClose", handleDropdownClose);
+      lenis.destroy();
+    };
   }, []);
 
   return (
