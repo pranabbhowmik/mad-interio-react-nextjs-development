@@ -56,9 +56,9 @@ const SinglePropertySection = ({ property }) => {
         <div className="description-details">
           <SearchBarDeskBox fix={fix} about={property} />
           <FeatureDeskBox services={property?.services} />
-          <ProjectDeskBox projects={property?.projects} />
           <DetailsDeskBox details={property} />
-          {/* <GalleryDeskBox gallery={property} /> */}
+          <ProjectDeskBox projects={property?.projects} />
+          <GalleryDeskBox gallery={property} />
           {/* <ReviewsDeskBox reviews={property?.reviews} /> */}
         </div>
       </div>

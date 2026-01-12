@@ -7,7 +7,7 @@ import { Col, Container, Row } from "reactstrap";
 import { feature3 } from "@/data/slickSlider";
 import Img from "@/utils/BackgroundImageRatio";
 import NoSsr from "@/utils/NoSsr";
-import formatPrice from "@/utils/mad-interio/formatters"; // ✅ Ensure path is correct
+import formatPrice from "@/utils/mad-interio/formatters"; //  Ensure path is correct
 
 const FeaturePropertySection = () => {
   const [properties, setProperties] = useState([]);

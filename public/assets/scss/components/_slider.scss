@@ -479,7 +479,7 @@
   }
 }
 
-/* ✅ Mobile-friendly sorting & filter row */
+/* Mobile-friendly sorting & filter row */
 .mobile-sort-wrapper {
   display: flex;
   gap: 8px;
@@ -494,7 +494,7 @@
   white-space: nowrap;
 }
 
-/* ✅ Stack them neatly on very small screens */
+/* Stack them neatly on very small screens */
 @media (max-width: 480px) {
   .mobile-sort-wrapper {
     flex-direction: row;

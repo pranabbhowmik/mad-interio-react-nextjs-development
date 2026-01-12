@@ -1,4 +1,4 @@
-// ParallaxCards.js (updated)
+// ParallaxCards.js (Updated)
 import { useEffect, useRef } from "react";
 import { useScroll } from "framer-motion";
 import Lenis from "lenis";
@@ -16,13 +16,28 @@ export default function ParallaxCards() {
   });
 
   useEffect(() => {
-    const lenis = new Lenis();
+    //  ENHANCED: Lenis init with iOS/mobile optimizations
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Smooth easing
+      direction: "vertical",
+      gestureDirection: "vertical",
+      smooth: true,
+      mouseMultiplier: 1,
+      smoothTouch: false, // Disable for native dropdown touch
+      touchMultiplier: 2, // Boost touch sensitivity
+      syncTouch: true, // Sync with native touch events
+      infinite: false,
+    });
+
     let dropdownOpenCount = 0;
 
     const handleDropdownOpen = () => {
       dropdownOpenCount++;
       if (dropdownOpenCount > 0) {
-        lenis.stop();
+        lenis.stop(); // Pause global smooth scroll
+        //  NEW: Allow nested scrolls during pause (Lenis v1.0+)
+        lenis.options.allowNestedScroll = true;
       }
     };
 
@@ -30,7 +45,8 @@ export default function ParallaxCards() {
       dropdownOpenCount--;
       if (dropdownOpenCount <= 0) {
         dropdownOpenCount = 0;
-        lenis.start();
+        lenis.options.allowNestedScroll = false;
+        lenis.start(); // Resume
       }
     };
 
@@ -54,12 +70,7 @@ export default function ParallaxCards() {
     <div className={styles.explore}>
       <section className={styles.categorySection}>
         <Container>
-          {/* <div className={styles.header}>
-            <h2>Explore By Category</h2>
-            <p>One platform. All spaces </p>
-          </div> */}
-          <div class="title-2 text-start">
-            {/* <span class="label label-gradient">New Offer</span> */}
+          <div className="title-2 text-start">
             <h2>Explore By Category</h2>
             <p>One platform. All spaces </p>
           </div>

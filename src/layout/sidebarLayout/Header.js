@@ -24,7 +24,7 @@ const Header = ({
   productCount,
   setMapModal,
   gridDispatch,
-  onSortChange, // ✅ added from GridView
+  onSortChange, //  added from GridView
   filters,
   uniqueCities,
   uniquePropertyTypes,
@@ -47,9 +47,9 @@ const Header = ({
 
   const handleSortBy = (sortOption, label) => {
     if (typeof onSortChange === "function") {
-      onSortChange(sortOption); // ✅ send to GridView
+      onSortChange(sortOption); //  send to GridView
     }
-    setSelectedSort(label); // ✅ update label in dropdown
+    setSelectedSort(label); //  update label in dropdown
     setIsOpen(false);
   };
 
@@ -119,7 +119,7 @@ const Header = ({
               </div>
             )}
 
-            {/* ✅ Sorting Dropdown */}
+            {/*  Sorting Dropdown */}
             <Dropdown isOpen={isOpen} toggle={() => setIsOpen(!isOpen)}>
               <DropdownToggle className="font-rubik sort-btn">
                 <span>{selectedSort}</span>{" "}

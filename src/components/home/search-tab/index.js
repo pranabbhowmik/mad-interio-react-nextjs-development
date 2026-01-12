@@ -34,9 +34,10 @@ const BodyContent = () => {
       <Hero />
       <div>
         <HowItWorks />
-        <ParallaxCards />
+
         <FeatureSection />
         <FeaturePropertySection />
+        <ParallaxCards />
       </div>
 
       <div

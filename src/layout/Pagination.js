@@ -23,6 +23,20 @@ const Pagination = ({ toPage, gridDispatch, totalPages }) => {
   const showPrevChunk = toPage > 10; // Show if more than 10 pages before
   const showNextChunk = toPage < totalPages - 9; // Show if more than 10 pages after
 
+  const previousLabel =
+    toPage > 1 ? (
+      <span aria-label="Previous Page" className="page-link">
+        {"<"}
+      </span>
+    ) : null;
+
+  const nextLabel =
+    toPage < totalPages ? (
+      <span aria-label="Next Page" className="page-link">
+        {">"}
+      </span>
+    ) : null;
+
   return (
     <>
       <style>{`
@@ -37,34 +51,13 @@ const Pagination = ({ toPage, gridDispatch, totalPages }) => {
       `}</style>
       <nav className="theme-pagination">
         <div className="d-flex align-items-center justify-content-end">
-          {/* Custom Previous Chunk (<<) */}
-          {showPrevChunk && (
-            <div className="page-item me-1">
-              <button
-                className="page-link"
-                aria-label="Previous 10 Pages"
-                onClick={handlePrevChunk}
-              >
-                {"<<"}
-              </button>
-            </div>
-          )}
-
           {/* ReactPaginate Core */}
           <ReactPaginate
             pageCount={totalPages}
             forcePage={toPage - 1}
             onPageChange={handlePageClick}
-            previousLabel={
-              <span aria-label="Previous Page" className="page-link">
-                {"<"}
-              </span>
-            }
-            nextLabel={
-              <span aria-label="Next Page" className="page-link">
-                {">"}
-              </span>
-            }
+            previousLabel={previousLabel}
+            nextLabel={nextLabel}
             breakLabel={<span className="page-link">...</span>}
             pageRangeDisplayed={3} // Show up to 3 pages around current
             marginPagesDisplayed={1} // Always show first/last
@@ -77,19 +70,6 @@ const Pagination = ({ toPage, gridDispatch, totalPages }) => {
             nextClassName="page-item"
             breakClassName="page-item"
           />
-
-          {/* Custom Next Chunk (>>) */}
-          {showNextChunk && (
-            <div className="page-item ms-1">
-              <button
-                className="page-link"
-                aria-label="Next 10 Pages"
-                onClick={handleNextChunk}
-              >
-                {">>"}
-              </button>
-            </div>
-          )}
         </div>
       </nav>
     </>

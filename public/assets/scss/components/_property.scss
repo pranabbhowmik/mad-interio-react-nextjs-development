@@ -74,7 +74,7 @@
   position: relative;
 
   > span {
-    letter-spacing: 5px;
+    letter-spacing: 2px;
     color: $light-color;
     text-transform: uppercase;
     font-weight: 500;
@@ -94,7 +94,7 @@
 
   p {
     line-height: 1.6;
-    font-size: 15px;
+    font-size: 13px;
     margin-bottom: 20px;
   }
 
@@ -1349,8 +1349,8 @@
 
     p {
       margin-bottom: 15px;
-      display: -webkit-box; /* ✅ for multi-line clamp */
-      -webkit-line-clamp: 1; /* ✅ limit to 2 lines */
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
       -webkit-box-orient: vertical;
       overflow: hidden;
       text-overflow: ellipsis;

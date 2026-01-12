@@ -104,7 +104,9 @@ const BodyContent = () => {
                     target="_blank"
                     href={`/designer/${projectData.businessId}`}
                   >
-                    <h3>{toTitleCase(projectData.businessName)}</h3>
+                    <h3 style={{ color: "#d18d4b" }}>
+                      {toTitleCase(projectData.businessName)}
+                    </h3>
                   </a>
                 ) : null}
 

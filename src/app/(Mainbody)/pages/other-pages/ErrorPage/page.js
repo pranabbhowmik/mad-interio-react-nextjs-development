@@ -37,6 +37,7 @@ const ErrorPage = () => {
             </Row>
           </Container>
         </section>
+        <FooterOne />
       </Fragment>
     </>
   );

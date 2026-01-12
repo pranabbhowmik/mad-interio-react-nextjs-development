@@ -6,7 +6,7 @@ const Logo = () => {
     <div className="footer-details">
       <Link href="/">
         <img
-          src="/assets/images/logo/logo-md.svg"
+          src="/assets/images/logo/madinterio.svg"
           alt="Connect with top interior designers for premium home decor."
           className="img-fluid"
           loading="lazy"

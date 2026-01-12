@@ -65,7 +65,7 @@ const PropertyBox = ({ data, relativeSlider, video }) => {
       </div>
 
       <div className="property-details">
-        {/* ✅ Link directly to /property/[id] */}
+        {/*  Link directly to /property/[id] */}
         <a href={`/designer/${data.id}`}>
           <h3 className="singel-line">
             {toTitleCase(
@@ -107,14 +107,12 @@ const PropertyBox = ({ data, relativeSlider, video }) => {
               "No description available for this professional."}
         </p>
         <ul>
-          <li>Profession: {data.professionType || " "}</li>
-          <li>Owner: {data.ownerName || " "}</li>
+          {data.professionType && <li>Profession: {data.professionType}</li>}
+          {data.ownerName && <li>Owner: {data.ownerName}</li>}
           {data.pinCode && <li>Pincode: {data.pinCode}</li>}
         </ul>
 
         <div className="property-btn d-flex">
-          {/* <span>{data.createdAt}</span> */}
-          {/* ✅ Link button also to /property/[id] */}
           <a href={`/designer/${data.id}`} target="_blank">
             <button type="button" className="btn btn-dashed btn-pill">
               Details

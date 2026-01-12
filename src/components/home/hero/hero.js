@@ -441,10 +441,13 @@
 //     </section>
 //   );
 // }
+// hero.js (Fully Resolved Version)
+// hero.js (Updated with CustomMenuList)
+// hero.js (Full Professional Version - Consolidated with All Fixes)
 "use client";
 import React, { useState, useEffect, useMemo } from "react";
 import { useRouter } from "next/navigation";
-import Select from "react-select";
+import Select, { components } from "react-select";
 import styles from "./hero.module.scss";
 
 export default function Hero() {
@@ -462,6 +465,16 @@ export default function Hero() {
     () => cities.map((city) => ({ value: city, label: city })),
     [cities]
   );
+
+  //  NEW: Custom MenuList to add data-lenis-prevent for nested scroll allowance
+  const CustomMenuList = (props) => (
+    <div data-lenis-prevent>
+      {" "}
+      {/*  Lenis attribute: Allows internal scroll */}
+      <components.MenuList {...props} />
+    </div>
+  );
+
   const heroSelectStyles = {
     control: (base, state) => ({
       ...base,
@@ -504,7 +517,12 @@ export default function Hero() {
       zIndex: 9999,
       overflowY: "auto",
     }),
-    // ✅ UPDATED: Strengthened selected state with explicit theme colors (overrides any defaults)
+    //  NEW: Portal styles to ensure menu renders outside animated containers
+    menuPortal: (base) => ({
+      ...base,
+      zIndex: 9999, // High z-index above parallax (z=1) and hero elements
+    }),
+    //  UPDATED: Strengthened selected state with explicit theme colors (overrides any defaults)
     option: (base, state) => ({
       ...base,
       padding: "12px 16px", // Consistent padding
@@ -559,7 +577,7 @@ export default function Hero() {
         const apiCities = data.cities || [];
         const apiPropertyTypes = data.propertyTypes || [];
 
-        // ✅ BONUS: Normalize to avoid duplicates (e.g., trim and unique)
+        //  BONUS: Normalize to avoid duplicates (e.g., trim and unique)
         const uniqueCities = [
           ...new Set(["All Cities", ...apiCities.map((c) => c.trim())]),
         ];
@@ -621,8 +639,19 @@ export default function Hero() {
                 placeholder="All Cities"
                 isSearchable
                 styles={heroSelectStyles}
-                onMenuOpen={() => setCityMenuOpen(true)}
-                onMenuClose={() => setCityMenuOpen(false)}
+                components={{ MenuList: CustomMenuList }} //  Add custom wrapper
+                //  FIXED: Dispatch custom events to pause Lenis during menu open/close
+                onMenuOpen={() => {
+                  setCityMenuOpen(true);
+                  window.dispatchEvent(new CustomEvent("dropdownOpen"));
+                }}
+                onMenuClose={() => {
+                  setCityMenuOpen(false);
+                  window.dispatchEvent(new CustomEvent("dropdownClose"));
+                }}
+                //  NEW: Portal menu to body for event isolation from parallax/Lenis
+                menuPortalTarget={document.body}
+                menuPosition="fixed"
                 noOptionsMessage={() => "No matching cities found"}
               />
             </div>
@@ -639,8 +668,19 @@ export default function Hero() {
                 placeholder="All Property Types"
                 isSearchable
                 styles={heroSelectStyles}
-                onMenuOpen={() => setRoomsMenuOpen(true)}
-                onMenuClose={() => setRoomsMenuOpen(false)}
+                components={{ MenuList: CustomMenuList }} //  Add custom wrapper
+                //  FIXED: Dispatch custom events to pause Lenis during menu open/close
+                onMenuOpen={() => {
+                  setRoomsMenuOpen(true);
+                  window.dispatchEvent(new CustomEvent("dropdownOpen"));
+                }}
+                onMenuClose={() => {
+                  setRoomsMenuOpen(false);
+                  window.dispatchEvent(new CustomEvent("dropdownClose"));
+                }}
+                //  NEW: Portal menu to body for event isolation from parallax/Lenis
+                menuPortalTarget={document.body}
+                menuPosition="fixed"
                 noOptionsMessage={() => "No matching property types found"}
               />
             </div>

@@ -255,7 +255,7 @@ export default InputForm;
 //     }
 //   };
 
-//   // ✅ FIXED: Check LOCAL (pending) OR GLOBAL (applied) for instant UX
+//   //  FIXED: Check LOCAL (pending) OR GLOBAL (applied) for instant UX
 //   const hasActiveFilters = !!(
 //     filterValues.city ||
 //     filterValues.propertyType ||

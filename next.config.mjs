@@ -1,9 +1,9 @@
 // /** @type {import('next').NextConfig} */
 // const nextConfig = {
-//   output: "export", // ✅ enables static HTML export (creates /out folder)
+//   output: "export", //  enables static HTML export (creates /out folder)
 //   images: {
-//     unoptimized: true, // ✅ disables Next.js Image Optimization (needed for export)
-//     domains: ["lh3.googleusercontent.com"], // ✅ keep your existing domain
+//     unoptimized: true, //  disables Next.js Image Optimization (needed for export)
+//     domains: ["lh3.googleusercontent.com"], //  keep your existing domain
 //   },
 //   env: {
 //     NEXT_PUBLIC_SITE_URL: "https://interio.weighbridgeindia.co.in",

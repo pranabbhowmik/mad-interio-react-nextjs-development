@@ -5,9 +5,9 @@ import AboutDeskBox from "./AboutDeskBox";
 
 const SearchBarDeskBox = ({ fix, about }) => {
   const aboutData = about?.aboutUs;
-  const property = about?.galleryImages; // gallery images
+  const property = about?.galleryImages;
 
-  // const hasGallery = Array.isArray(property) && property.length > 0;
+  const hasGallery = Array.isArray(property) && property.length > 0;
 
   return (
     <div className="desc-box" id="navigation">
@@ -21,21 +21,19 @@ const SearchBarDeskBox = ({ fix, about }) => {
             <li>
               <a href="#service1">services</a>
             </li>
+            <li>
+              <a href="#details">details</a>
+            </li>
 
             <li>
               <a href="#project">projects</a>
             </li>
 
-            <li>
-              <a href="#details">details</a>
-            </li>
-
-            {/* ✅ Show only if gallery exists
             {hasGallery && (
               <li>
                 <a href="#gallery">Gallery</a>
               </li>
-            )} */}
+            )}
           </ul>
         </Container>
       </div>
