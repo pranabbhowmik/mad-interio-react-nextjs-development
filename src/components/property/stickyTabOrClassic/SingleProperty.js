@@ -12,6 +12,7 @@ import ErrorPage from "@/app/(Mainbody)/pages/other-pages/ErrorPage/page";
 import GalleryDeskBox from "./GalleryDeskBox";
 
 const SinglePropertySection = ({ property }) => {
+  console.log("SinglePropertySection property:", property);
   const fix = useStickyBar();
   useActiveLinkInStickyBar();
 

@@ -422,7 +422,7 @@ const GalleryDeskBox = ({ gallery }) => {
   const galleryImages = gallery?.galleryImages || [];
   const id = gallery?.id;
   console.log("Gallery ID:", id);
-  // Safety check
+
   if (!galleryImages.length) return null;
 
   const displayedImages = galleryImages.slice(0, 3);
