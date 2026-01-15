@@ -4328,3 +4328,18 @@ body {
     }
   }
 }
+
+// add mobile for Page 404
+/* Mobile */
+@media (max-width: 767px) {
+  .not-found {
+    margin-top: 100px;
+  }
+}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .not-found {
+    margin-top: 100px;
+  }
+}

@@ -13,6 +13,7 @@ const Page404 = () => {
     <>
       <Fragment>
         <Navbar />
+
         <section className="error-section small-section">
           <Container>
             <Row>
