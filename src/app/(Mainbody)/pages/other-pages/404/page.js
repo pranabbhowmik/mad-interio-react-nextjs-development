@@ -6,6 +6,9 @@ import Navbar from "@/components/common/navbar";
 import FooterOne from "@/layout/footers/FooterOne";
 
 const Page404 = () => {
+  const handleGoBack = () => {
+    window.history.back();
+  };
   return (
     <>
       <Fragment>
@@ -25,9 +28,9 @@ const Page404 = () => {
                   exist or has been removed. please check or search again.
                 </p>
                 <div className="btns">
-                  <Link href="/" className="btn btn-gradient">
-                    go to home page
-                  </Link>
+                  <button onClick={handleGoBack} className="btn btn-gradient">
+                    go back
+                  </button>
                 </div>
               </div>
             </Row>

@@ -8,11 +8,10 @@ import FeatureDeskBox from "./FeatureDeskBox";
 import SearchBarDeskBox from "./SearchBarDeskBox";
 import ReviewsDeskBox from "./ReviewsDeskBox";
 import ProjectDeskBox from "./ProjectDeskBox";
-import ErrorPage from "@/app/(Mainbody)/pages/other-pages/ErrorPage/page";
 import GalleryDeskBox from "./GalleryDeskBox";
+import Page404 from "@/app/(Mainbody)/pages/other-pages/404/page";
 
 const SinglePropertySection = ({ property }) => {
-  console.log("SinglePropertySection property:", property);
   const fix = useStickyBar();
   useActiveLinkInStickyBar();
 
@@ -48,7 +47,7 @@ const SinglePropertySection = ({ property }) => {
 
   // SECOND: Check for valid property only after loading is done
   if (!property || !property.id || !property.businessName) {
-    return <ErrorPage />;
+    return <Page404 />;
   }
 
   return (
