@@ -2,6 +2,7 @@
 import { ConfigDB } from "@/config/themeCustomizerConfig";
 import Customizer from "@/layout/Customizer";
 import TapToTop from "@/layout/TapToTop";
+import GAPageView from "@/utils/ga-pageview";
 import StoreOldData from "@/utils/StoreOldData";
 import { usePathname } from "next/navigation";
 import { Fragment, useEffect } from "react";
@@ -23,6 +24,7 @@ export default function RootLayout({ children }) {
 
   return (
     <Fragment>
+      <GAPageView />
       {children}
       <Customizer />
       <TapToTop />
