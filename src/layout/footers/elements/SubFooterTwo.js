@@ -10,7 +10,7 @@ const SubFooterTwo = () => {
           <div className="col-xl-6 col-md-6">
             <div className="copy-right">
               <p className="mb-0">
-                Copyright @ 2025 Mad Interio. All Rights Reserved.
+                Copyright @ 2026 Mad Interio. All Rights Reserved.
               </p>
             </div>
           </div>

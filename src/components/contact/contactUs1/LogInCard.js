@@ -190,6 +190,9 @@ const LogInCard = () => {
 
           {/* Subject */}
           <FormGroup className="form-group col-md-6">
+            <Label for="subjectInput" className="form-label mb-2">
+              Subject <span style={{ color: "red" }}>*</span>
+            </Label>
             <Input
               type="select"
               name="subject"
@@ -209,6 +212,9 @@ const LogInCard = () => {
 
           {/* Enquiry By */}
           <FormGroup className="form-group col-md-6">
+            <Label for="enquiryByInput" className="form-label mb-2">
+              What describes you? <span style={{ color: "red" }}>*</span>
+            </Label>
             <Input
               type="select"
               name="enquiryBy"
@@ -233,6 +239,9 @@ const LogInCard = () => {
 
           {/* Message */}
           <FormGroup className="form-group col-md-12">
+            <Label for="messageInput" className="form-label mb-2">
+              Message <span style={{ color: "red" }}>*</span>
+            </Label>
             <Input
               type="textarea"
               name="message"
