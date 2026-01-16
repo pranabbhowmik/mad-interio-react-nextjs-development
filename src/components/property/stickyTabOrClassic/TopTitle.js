@@ -25,6 +25,7 @@ const TopTitle = ({ details, singleData }) => {
     if (num >= 1000) return (num / 1000).toFixed(1).replace(/\.0$/, "") + "k"; // Thousands
     return num;
   };
+  console.log("details in toptitle", details);
   const instagram = details?.socials;
   const whatsapp = details?.phoneNumber;
   const businessName = details?.businessName || " ";
@@ -59,6 +60,8 @@ const TopTitle = ({ details, singleData }) => {
 
             <ReviewStarr
               socials={{ instagram, whatsapp, phone, email, website }}
+              designerId={details?._id}
+              designerName={businessName}
             />
 
             {priceLimits.length > 0 && (

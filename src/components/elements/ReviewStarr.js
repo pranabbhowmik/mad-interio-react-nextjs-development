@@ -21,32 +21,32 @@
 //   );
 // };
 
+import { handlePhoneClick } from "@/utils/gaEvents";
 import Link from "next/link";
 import React from "react";
 import { Col } from "reactstrap";
 
-function ReviewStarr({ socials }) {
+function ReviewStarr({ socials, designerId, designerName }) {
   return (
     <Col xl="3">
       <div className="review-social-icons text-center">
         <ul className="icon-list">
           {socials?.phone && (
             <li>
-              <Link target="_blank" href={`tel:${socials.phone}`}>
+              <Link
+                href={`tel:${socials.phone}`}
+                onClick={() =>
+                  handlePhoneClick({
+                    designerId,
+                    designerName,
+                  })
+                }
+              >
                 <i className="fa-solid fa-phone fa-lg"></i>
               </Link>
             </li>
           )}
-          {socials?.whatsapp && (
-            <li>
-              <Link
-                target="_blank"
-                href={`https://api.whatsapp.com/send?phone=${socials.whatsapp}`}
-              >
-                <i className="fa-brands fa-whatsapp fa-lg"></i>
-              </Link>
-            </li>
-          )}
+
           {socials?.instagram && socials.instagram !== "#" && (
             <li>
               <Link target="_blank" href={socials.instagram}>
@@ -54,6 +54,7 @@ function ReviewStarr({ socials }) {
               </Link>
             </li>
           )}
+
           {socials?.website && socials.website !== "#" && (
             <li>
               <Link target="_blank" href={socials.website}>
@@ -61,6 +62,7 @@ function ReviewStarr({ socials }) {
               </Link>
             </li>
           )}
+
           {socials?.email && socials.email !== "#" && (
             <li>
               <Link target="_blank" href={`mailto:${socials.email}`}>
