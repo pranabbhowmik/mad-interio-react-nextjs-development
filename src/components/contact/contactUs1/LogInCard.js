@@ -9,7 +9,6 @@ import {
   Input,
   InputGroup,
   InputGroupText,
-  Label,
   Row,
 } from "reactstrap";
 import { toast } from "react-toastify";
@@ -116,9 +115,6 @@ const LogInCard = () => {
         <Row className="gx-3">
           {/* Name */}
           <FormGroup className="form-group col-md-12">
-            <Label for="nameInput" className="form-label mb-2">
-              Name <span style={{ color: "red" }}>*</span>
-            </Label>
             <InputGroup
               className={`has-validation ${getInputClass(errors.name)}`}
             >
@@ -129,7 +125,7 @@ const LogInCard = () => {
                 type="text"
                 name="name"
                 id="nameInput"
-                placeholder="Enter your name"
+                placeholder="Enter your name *"
                 value={formData.name}
                 onChange={handleChange}
                 aria-describedby="nameFeedback"
@@ -140,9 +136,6 @@ const LogInCard = () => {
 
           {/* Phone */}
           <FormGroup className="form-group col-md-6">
-            <Label for="phoneNumberInput" className="form-label mb-2">
-              Phone Number <span style={{ color: "red" }}>*</span>
-            </Label>
             <InputGroup
               className={`has-validation ${getInputClass(errors.phoneNumber)}`}
             >
@@ -153,7 +146,7 @@ const LogInCard = () => {
                 type="tel"
                 name="phoneNumber"
                 id="phoneNumberInput"
-                placeholder="Phone number"
+                placeholder="Phone number *"
                 value={formData.phoneNumber}
                 onChange={handleChange}
                 aria-describedby="phoneNumberFeedback"
@@ -166,9 +159,6 @@ const LogInCard = () => {
 
           {/* Email */}
           <FormGroup className="form-group col-md-6">
-            <Label for="emailInput" className="form-label mb-2">
-              Email Address <span style={{ color: "red" }}>*</span>
-            </Label>
             <InputGroup
               className={`has-validation ${getInputClass(errors.email)}`}
             >
@@ -179,7 +169,7 @@ const LogInCard = () => {
                 type="email"
                 name="email"
                 id="emailInput"
-                placeholder="Email address"
+                placeholder="Email address *"
                 value={formData.email}
                 onChange={handleChange}
                 aria-describedby="emailFeedback"
@@ -190,9 +180,6 @@ const LogInCard = () => {
 
           {/* Subject */}
           <FormGroup className="form-group col-md-6">
-            <Label for="subjectInput" className="form-label mb-2">
-              Subject <span style={{ color: "red" }}>*</span>
-            </Label>
             <Input
               type="select"
               name="subject"
@@ -203,7 +190,7 @@ const LogInCard = () => {
               className={getInputClass(errors.subject)}
               aria-describedby="subjectFeedback"
             >
-              <option value="">Select Subject </option>
+              <option value="">Select Subject * </option>
               <option value="Listing Interest">Listing Interest</option>
               <option value="General Inquiry">General Inquiry</option>
             </Input>
@@ -212,9 +199,6 @@ const LogInCard = () => {
 
           {/* Enquiry By */}
           <FormGroup className="form-group col-md-6">
-            <Label for="enquiryByInput" className="form-label mb-2">
-              What describes you? <span style={{ color: "red" }}>*</span>
-            </Label>
             <Input
               type="select"
               name="enquiryBy"
@@ -225,7 +209,7 @@ const LogInCard = () => {
               className={getInputClass(errors.enquiryBy)}
               aria-describedby="enquiryByFeedback"
             >
-              <option value="">What describes you? </option>
+              <option value="">What describes you? * </option>
               <option value="Real Estate Developer">
                 Real Estate Developer
               </option>
@@ -239,15 +223,12 @@ const LogInCard = () => {
 
           {/* Message */}
           <FormGroup className="form-group col-md-12">
-            <Label for="messageInput" className="form-label mb-2">
-              Message <span style={{ color: "red" }}>*</span>
-            </Label>
             <Input
               type="textarea"
               name="message"
               id="messageInput"
               rows="3"
-              placeholder="Write here something "
+              placeholder="Write here something *"
               value={formData.message}
               onChange={handleChange}
               className={getInputClass(errors.message)}

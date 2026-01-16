@@ -25,8 +25,9 @@ const TopTitle = ({ details, singleData }) => {
     if (num >= 1000) return (num / 1000).toFixed(1).replace(/\.0$/, "") + "k"; // Thousands
     return num;
   };
-  // console.log("details ID", details.id);
+  console.log("details ID", details);
   const instagram = details?.socials;
+  const catagory = details?.professionType;
   const whatsapp = details?.phoneNumber;
   const businessName = details?.businessName || " ";
   const city = details?.city || " ";
@@ -62,6 +63,7 @@ const TopTitle = ({ details, singleData }) => {
               socials={{ instagram, whatsapp, phone, email, website }}
               designerId={details.id}
               designerName={businessName}
+              designerCatagory={catagory}
             />
 
             {priceLimits.length > 0 && (

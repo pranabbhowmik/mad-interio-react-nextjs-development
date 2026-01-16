@@ -26,7 +26,7 @@ import Link from "next/link";
 import React from "react";
 import { Col } from "reactstrap";
 
-function ReviewStarr({ socials, designerId, designerName }) {
+function ReviewStarr({ socials, designerId, designerName, designerCatagory }) {
   return (
     <Col xl="3">
       <div className="review-social-icons text-center">
@@ -39,6 +39,7 @@ function ReviewStarr({ socials, designerId, designerName }) {
                   handlePhoneClick({
                     designerId,
                     designerName,
+                    designerCatagory,
                   })
                 }
               >
