@@ -69,7 +69,7 @@ const DetailsDeskBox = ({
                   {showContact ? (
                     <Link
                       href={`tel:${phone}`}
-                      className="text-blue-500 hover:underline"
+                      className="text-black hover:text-blue-500 hover:underline"
                       onClick={() =>
                         handlePhoneClick({
                           designerId,

@@ -46,7 +46,7 @@ const ContactInfo = ({
                 {showContact ? (
                   <Link
                     href={`tel:${contact.phoneNumber}`}
-                    style={{ color: "inherit", textDecoration: "none" }}
+                    className="text-black hover:text-blue-500 hover:underline"
                     onClick={() =>
                       handlePhoneClick({
                         designerId,
