@@ -1,12 +1,30 @@
 // ContactInfo.js
 import React from "react";
 import { MapPin, PhoneCall } from "react-feather";
+import { handlePhoneClick, handleViewContactClick } from "@/utils/gaEvents";
+import Link from "next/link";
 
-const ContactInfo = ({ contact }) => {
+const ContactInfo = ({
+  contact,
+  designerId,
+  designerName,
+  designerCatagory,
+}) => {
   // Enhanced: Check for meaningful data (e.g., at least ownerName or phoneNumber)
   if (!contact || (!contact.ownerName && !contact.phoneNumber)) {
     return null;
   }
+
+  const [showContact, setShowContact] = React.useState(false);
+
+  const handleViewClick = () => {
+    handleViewContactClick({
+      designerId,
+      designerName,
+      designerCatagory,
+    });
+    setShowContact(true);
+  };
 
   return (
     <div className="advance-card">
@@ -25,12 +43,28 @@ const ContactInfo = ({ contact }) => {
             <div className="media-body ms-2">
               <h6>{contact.ownerName || ""}</h6>
               <p>
-                <a
-                  href={`tel:${contact.phoneNumber}`}
-                  style={{ color: "inherit", textDecoration: "none" }}
-                >
-                  {contact.phoneNumber || ""}
-                </a>
+                {showContact ? (
+                  <Link
+                    href={`tel:${contact.phoneNumber}`}
+                    style={{ color: "inherit", textDecoration: "none" }}
+                    onClick={() =>
+                      handlePhoneClick({
+                        designerId,
+                        designerName,
+                        designerCatagory,
+                      })
+                    }
+                  >
+                    {contact.phoneNumber || ""}
+                  </Link>
+                ) : (
+                  <span
+                    className="cursor-pointer text-blue-500 hover:underline"
+                    onClick={handleViewClick}
+                  >
+                    View Contact Info
+                  </span>
+                )}
               </p>
             </div>
           </div>

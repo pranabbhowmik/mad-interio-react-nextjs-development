@@ -29,7 +29,14 @@ const BodyContent = ({ side, id }) => {
         <Container>
           <Row className="ratio_65">
             <Sidebar mortgage={true} side={side} singleProperty={true}>
-              {data && <ContactInfo contact={data} />}
+              {data && (
+                <ContactInfo
+                  contact={data}
+                  designerId={data.id}
+                  designerName={data.businessName}
+                  designerCatagory={data.professionType}
+                />
+              )}
 
               <RecentlyAdded recentdata={data?.similarProfessionals} />
             </Sidebar>

@@ -1,9 +1,16 @@
 // DetailsDeskBox.js
 import React from "react";
 import { Col, Row } from "reactstrap";
+import { handlePhoneClick, handleViewContactClick } from "@/utils/gaEvents";
+import Link from "next/link";
 import formatPrice from "@/utils/mad-interio/formatters";
 
-const DetailsDeskBox = ({ details }) => {
+const DetailsDeskBox = ({
+  details,
+  designerId,
+  designerName,
+  designerCatagory,
+}) => {
   // Add this: Hide entire component if no meaningful details
   const hasDetails =
     details?.businessName ||
@@ -17,6 +24,8 @@ const DetailsDeskBox = ({ details }) => {
     return null;
   }
 
+  const [showContact, setShowContact] = React.useState(false);
+
   const businessName = details?.businessName;
   const city = details?.city;
   const phone = details?.phoneNumber;
@@ -24,6 +33,15 @@ const DetailsDeskBox = ({ details }) => {
   const professionType = details?.professionType;
   const address = details?.address;
   const priceLimits = details?.priceLimits || [];
+
+  const handleViewClick = () => {
+    handleViewContactClick({
+      designerId,
+      designerName,
+      designerCatagory,
+    });
+    setShowContact(true);
+  };
 
   return (
     <div className="desc-box" id="details">
@@ -47,7 +65,29 @@ const DetailsDeskBox = ({ details }) => {
 
               {phone && (
                 <li>
-                  <span>Phone:</span> {phone}
+                  <span>Phone:</span>{" "}
+                  {showContact ? (
+                    <Link
+                      href={`tel:${phone}`}
+                      className="text-blue-500 hover:underline"
+                      onClick={() =>
+                        handlePhoneClick({
+                          designerId,
+                          designerName,
+                          designerCatagory,
+                        })
+                      }
+                    >
+                      {phone}
+                    </Link>
+                  ) : (
+                    <span
+                      className="cursor-pointer text-blue-500 hover:underline"
+                      onClick={handleViewClick}
+                    >
+                      View Contact Info
+                    </span>
+                  )}
                 </li>
               )}
             </ul>
@@ -70,12 +110,12 @@ const DetailsDeskBox = ({ details }) => {
               {email && (
                 <li>
                   <span>Email:</span>
-                  <a
+                  <Link
                     href={`mailto:${email}`}
                     className="text-blue-500 hover:underline"
                   >
                     {email}
-                  </a>
+                  </Link>
                 </li>
               )}
             </ul>

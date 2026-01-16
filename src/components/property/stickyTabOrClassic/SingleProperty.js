@@ -49,14 +49,22 @@ const SinglePropertySection = ({ property }) => {
   if (!property || !property.id || !property.businessName) {
     return <Page404 />;
   }
-
+  console.log(
+    "SinglePropertySection rendering with property:",
+    property.professionType
+  );
   return (
     <Col xl="9" lg="8">
       <div className="description-section">
         <div className="description-details">
           <SearchBarDeskBox fix={fix} about={property} />
           <FeatureDeskBox services={property?.services} />
-          <DetailsDeskBox details={property} />
+          <DetailsDeskBox
+            details={property}
+            designerId={property.id}
+            designerName={property.businessName}
+            designerCatagory={property.professionType}
+          />
           <ProjectDeskBox projects={property?.projects} />
           <GalleryDeskBox gallery={property} />
           {/* <ReviewsDeskBox reviews={property?.reviews} /> */}
