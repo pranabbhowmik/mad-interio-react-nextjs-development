@@ -1,6 +1,4 @@
-// ContactInfo.js
 import React from "react";
-import { MapPin, PhoneCall } from "react-feather";
 import { handlePhoneClick, handleViewContactClick } from "@/utils/gaEvents";
 import Link from "next/link";
 
@@ -10,12 +8,13 @@ const ContactInfo = ({
   designerName,
   designerCatagory,
 }) => {
-  // Enhanced: Check for meaningful data (e.g., at least ownerName or phoneNumber)
+  // Hide whole card if no usable data
   if (!contact || (!contact.ownerName && !contact.phoneNumber)) {
     return null;
   }
 
   const [showContact, setShowContact] = React.useState(false);
+  const hasPhone = Boolean(contact.phoneNumber);
 
   const handleViewClick = () => {
     handleViewContactClick({
@@ -29,6 +28,7 @@ const ContactInfo = ({
   return (
     <div className="advance-card">
       <h6>Contact Info</h6>
+
       <div className="category-property">
         <div className="agent-info">
           <div className="media">
@@ -40,35 +40,44 @@ const ContactInfo = ({
               className="img-50"
               alt={contact.businessName || contact.ownerName || "Contact"}
             />
+
             <div className="media-body ms-2">
-              <h6>{contact.ownerName || ""}</h6>
-              <p>
-                {showContact ? (
-                  <Link
-                    href={`tel:${contact.phoneNumber}`}
-                    className="text-black hover:text-blue-500 hover:underline"
-                    onClick={() =>
-                      handlePhoneClick({
-                        designerId,
-                        designerName,
-                        designerCatagory,
-                      })
-                    }
-                  >
-                    {contact.phoneNumber || ""}
-                  </Link>
-                ) : (
-                  <span
-                    style={{
-                      cursor: "pointer",
-                      textDecoration: "underline",
-                    }}
-                    onClick={handleViewClick}
-                  >
-                    View Contact Info
-                  </span>
-                )}
-              </p>
+              {contact.ownerName && <h6>{contact.ownerName}</h6>}
+
+              {/* Render only if phone exists */}
+              {hasPhone && (
+                <p>
+                  {showContact ? (
+                    <Link
+                      href={`tel:${contact.phoneNumber}`}
+                      onClick={() =>
+                        handlePhoneClick({
+                          designerId,
+                          designerName,
+                          designerCatagory,
+                        })
+                      }
+                      style={{
+                        color: "inherit",
+                        textDecoration: "underline",
+                        cursor: "pointer",
+                      }}
+                    >
+                      {contact.phoneNumber}
+                    </Link>
+                  ) : (
+                    <span
+                      onClick={handleViewClick}
+                      style={{
+                        cursor: "pointer",
+                        textDecoration: "underline",
+                      }}
+                    >
+                      View Contact Info
+                    </span>
+                  )}
+                </p>
+              )}
             </div>
           </div>
         </div>
