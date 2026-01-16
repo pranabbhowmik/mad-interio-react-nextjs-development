@@ -82,7 +82,10 @@ const DetailsDeskBox = ({
                     </Link>
                   ) : (
                     <span
-                      className="cursor-pointer text-blue-500 hover:underline"
+                      style={{
+                        cursor: "pointer",
+                        textDecoration: "underline",
+                      }}
                       onClick={handleViewClick}
                     >
                       View Contact Info
