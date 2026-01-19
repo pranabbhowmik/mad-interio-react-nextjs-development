@@ -1,7 +1,7 @@
 import ContactUs from "./ContactUs";
 
 export const metadata = {
-  title: "Contact Us | Connect with Trusted Interior Designers | Mad Interio",
+  title: "Contact Us | Mad Interio",
   description:
     "Get in touch with Mad Interio — your trusted platform to find and connect with top interior designers, home decor experts, and design professionals across India.",
   keywords: [
@@ -15,7 +15,7 @@ export const metadata = {
     "interior designers India",
   ],
   openGraph: {
-    title: "Contact Us | Connect with Trusted Interior Designers | Mad Interio",
+    title: "Contact Us | Mad Interio",
     description:
       "Reach out to Mad Interio — India’s trusted interior design directory helping homeowners, architects, and developers connect with verified interior designers and design experts.",
     url: "https://madinterio.in/contact-interior-designers",

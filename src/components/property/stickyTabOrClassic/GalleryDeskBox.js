@@ -421,14 +421,14 @@ import Img from "@/utils/BackgroundImageRatio";
 const GalleryDeskBox = ({ gallery }) => {
   const galleryImages = gallery?.galleryImages || [];
   const id = gallery?.id;
-  console.log("Gallery ID:", id);
+  const galleryTitle = gallery?.businessName;
   // Safety check
   if (!galleryImages.length) return null;
 
   const displayedImages = galleryImages.slice(0, 3);
 
   return (
-    <div className="desc-box px-2" id="gallery">
+    <div className="desc-box px-2">
       <Gallery>
         <Row className="portfolio-section zoom-gallery-multiple gy-3 px-2 px-md-3 py-2 py-md-3">
           <h4 className="content-title mb-1">Gallery</h4>
@@ -461,7 +461,10 @@ const GalleryDeskBox = ({ gallery }) => {
       </Gallery>
       <Row className="gy-3 px-2 px-md-3 py-2 py-md-3">
         <Col xs="12" className="text-center">
-          <a href={`/gallery/${id}`} target="_blank">
+          <a
+            href={`/gallery/${id}?title=${encodeURIComponent(galleryTitle)}`}
+            target="_blank"
+          >
             <button type="button" className="btn btn-solid">
               View More →
             </button>

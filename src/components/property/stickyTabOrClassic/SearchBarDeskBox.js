@@ -34,7 +34,7 @@ const SearchBarDeskBox = ({ fix, about }) => {
 
             {hasServices && (
               <li>
-                <a href="#service1">services</a>
+                <a href="#services">services</a>
               </li>
             )}
 

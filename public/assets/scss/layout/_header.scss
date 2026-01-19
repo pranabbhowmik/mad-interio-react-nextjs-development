@@ -2374,3 +2374,16 @@ header,
     }
   }
 }
+
+// Image Heading Gallery Header Styles
+.pswp-custom-title {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: #fff;
+  font-size: 22px;
+  font-weight: 600;
+  pointer-events: none;
+}

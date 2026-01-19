@@ -51,7 +51,7 @@ const SinglePropertySection = ({ property }) => {
   }
   console.log(
     "SinglePropertySection rendering with property:",
-    property.professionType
+    property.professionType,
   );
   return (
     <Col xl="9" lg="8">

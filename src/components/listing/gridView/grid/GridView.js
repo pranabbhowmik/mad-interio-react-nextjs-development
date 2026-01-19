@@ -108,8 +108,10 @@ const GridView = ({
         const apiCities = data.cities || [];
         const apiPropertyTypes = data.propertyTypes || [];
 
-        const cities = [...apiCities.map((c) => c.trim()).sort()];
-        const propertyTypes = [...apiPropertyTypes.sort()];
+        // FIXED: Removed .sort() to preserve original API order (no alphabetical A-Z sorting).
+        // Also ensured full values via trim() only—no shortening/abbreviation.
+        const cities = [...apiCities.map((c) => c.trim())];
+        const propertyTypes = [...apiPropertyTypes];
 
         setUniqueCities(cities);
         setUniquePropertyTypes(propertyTypes);
@@ -152,7 +154,7 @@ const GridView = ({
         // console.log("Fetching with params:", params.toString());
 
         const res = await fetch(
-          `${SITE_URL}/Professionals?${params.toString()}`
+          `${SITE_URL}/Professionals?${params.toString()}`,
         );
         const result = await res.json();
 

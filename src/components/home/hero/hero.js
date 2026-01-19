@@ -463,7 +463,7 @@ export default function Hero() {
 
   const cityOptions = useMemo(
     () => cities.map((city) => ({ value: city, label: city })),
-    [cities]
+    [cities],
   );
 
   //  NEW: Custom MenuList to add data-lenis-prevent for nested scroll allowance
@@ -529,8 +529,8 @@ export default function Hero() {
       backgroundColor: state.isSelected
         ? "#984b01" // Theme orange for selected
         : state.isFocused
-        ? "rgba(152, 75, 1, 0.12)" // Light orange hover/focus
-        : "#fff", // Default white
+          ? "rgba(152, 75, 1, 0.12)" // Light orange hover/focus
+          : "#fff", // Default white
       color: state.isSelected
         ? "#fff" // White text on selected
         : "#101828", // Dark text otherwise
@@ -545,7 +545,7 @@ export default function Hero() {
 
   const roomsOptions = useMemo(
     () => roomsTypes.map((type) => ({ value: type, label: type })),
-    [roomsTypes]
+    [roomsTypes],
   );
 
   const selectCity = (option) => {

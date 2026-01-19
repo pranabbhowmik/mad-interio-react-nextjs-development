@@ -8,7 +8,7 @@ const FeatureDeskBox = ({ services }) => {
   }
 
   return (
-    <div className="desc-box" id="services">
+    <div className="desc-box" id="details">
       <div className="page-section services-dec">
         <h4 className="content-title">Services</h4>
         <Row className="single-feature">

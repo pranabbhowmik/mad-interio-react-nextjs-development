@@ -1,7 +1,7 @@
 import Details from "./Datails";
 
 export const metadata = {
-  title: "Interior Design Details | Designer Property Details | Mad Interio",
+  title: "Interior Designer Project  | Mad Interio",
   description:
     "Explore detailed property portfolios from top interior designers on Mad Interio. View project styles, designs, and spaces crafted by verified experts.",
   keywords: [

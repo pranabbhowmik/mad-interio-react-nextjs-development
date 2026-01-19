@@ -9,12 +9,11 @@ export const handlePhoneClick = ({
   if (typeof window === "undefined") return;
   if (!window.gtag) return;
 
-  window.gtag("event", "designer_phone_click", {
+  window.gtag("event", "view_designer_contact_number", {
     designer_category: designerCatagory || "unknown_category",
     designer_Name: designerName || "unknown_designer",
     designer_id: designerId || "unknown",
     page_path: window.location.pathname,
-    Value: 1,
   });
 };
 
@@ -26,11 +25,10 @@ export const handleViewContactClick = ({
   if (typeof window === "undefined") return;
   if (!window.gtag) return;
 
-  window.gtag("event", "designer_view_contact", {
-    designer_category: designerCatagory || "unknown_category",
+  window.gtag("event", "view_designer_contact_number", {
     designer_Name: designerName || "unknown_designer",
     designer_id: designerId || "unknown",
     page_path: window.location.pathname,
-    Value: 1,
+    designer_category: designerCatagory || "unknown_category",
   });
 };

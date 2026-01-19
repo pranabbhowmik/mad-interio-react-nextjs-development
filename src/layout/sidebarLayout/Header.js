@@ -1,7 +1,3 @@
-// Header.js
-/**
- * It renders a header with a title, a dropdown, and a grid/list toggle
- */
 import React, { useState, useEffect, useRef } from "react";
 import { AlignCenter, Grid, List } from "react-feather";
 import {
@@ -24,7 +20,7 @@ const Header = ({
   productCount,
   setMapModal,
   gridDispatch,
-  onSortChange, //  added from GridView
+  onSortChange,
   filters,
   uniqueCities,
   uniquePropertyTypes,
@@ -34,7 +30,7 @@ const Header = ({
   const [isOpen, setIsOpen] = useState(false);
   const [advancedSearchOpen, setAdvancedSearchOpen] = useState(false);
   const [mapModalOpen, setMapModalOpen] = useState(false);
-  const [selectedSort, setSelectedSort] = useState("Sort By"); // UPDATED: Default to "Select" placeholder
+  const [selectedSort, setSelectedSort] = useState("Sort By"); // UPDATED: Default to "Sort By" placeholder
   const mobileSize = useMobileSize("AdvancedSearch");
   const titleRef = useRef(null);
 
@@ -47,9 +43,9 @@ const Header = ({
 
   const handleSortBy = (sortOption, label) => {
     if (typeof onSortChange === "function") {
-      onSortChange(sortOption); //  send to GridView
+      onSortChange(sortOption);
     }
-    setSelectedSort(label); //  update label in dropdown
+    setSelectedSort(label);
     setIsOpen(false);
   };
 
@@ -126,9 +122,9 @@ const Header = ({
                 <i className="fas fa-angle-down ms-lg-3 ms-2"></i>
               </DropdownToggle>
               <DropdownMenu className="text-start">
-                {/* UPDATED: Added "Select" as first/default option */}
-                <DropdownItem onClick={() => handleSortBy("", "Sort By")}>
-                  Sort By
+                {/* UPDATED: Added "Sort By" as first/default option */}
+                <DropdownItem onClick={() => handleSortBy("", "Sort By")}>
+                  Sort By
                 </DropdownItem>
                 <DropdownItem
                   onClick={() => handleSortBy("newest", "Newest First")}
@@ -167,7 +163,7 @@ const Header = ({
         </ul>
       </div>
 
-      {/* Advanced Search */}
+      {/* Advanced Search - Now receives full, unsorted uniques */}
       <AdvancedSearch
         advancedSearchOpen={advancedSearchOpen}
         setAdvancedSearchOpen={setAdvancedSearchOpen}

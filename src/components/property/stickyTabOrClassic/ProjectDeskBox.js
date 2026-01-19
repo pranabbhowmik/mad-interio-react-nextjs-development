@@ -33,7 +33,7 @@ const ProjectDeskBox = ({ projects }) => {
 
   if (loading) {
     return (
-      <div className="desc-box" id="project">
+      <div className="desc-box">
         <div className="page-section feature-dec">
           <h4 className="content-title">Projects</h4>
           <ContentLoader className="skeleton-svg">
@@ -51,7 +51,7 @@ const ProjectDeskBox = ({ projects }) => {
   }
 
   return (
-    <div className="desc-box" id="project">
+    <div className="desc-box" id="gallery">
       <div className="page-section feature-dec">
         <h4 className="content-title">Projects</h4>
         <Container className="portfolio-section portfolio-grid" id="project">
@@ -101,7 +101,7 @@ const ProjectDeskBox = ({ projects }) => {
                               <h3 className="singel-line">
                                 <a>
                                   {toTitleCase(
-                                    project.projectName || "Untitled Project"
+                                    project.projectName || "Untitled Project",
                                   )}
                                 </a>
                               </h3>

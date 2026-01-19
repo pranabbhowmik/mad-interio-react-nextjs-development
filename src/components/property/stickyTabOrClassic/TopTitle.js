@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 const TopTitle = ({ details, singleData }) => {
   const [like, setLike] = useState(false);
   const { symbol, currencyValue } = useSelector(
-    (state) => state.currencyReducer
+    (state) => state.currencyReducer,
   );
   function toTitleCase(text) {
     return text

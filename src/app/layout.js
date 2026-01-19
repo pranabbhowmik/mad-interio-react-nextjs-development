@@ -10,7 +10,7 @@ import { I18nProvider } from "./i18n/i18n-context";
 const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 
 export const metadata = {
-  title: "Find Top Interior Designers | Mad Interio Directory",
+  title: "Mad Interio | Find Top Interior Designers for Home, Office & more",
   description:
     "Discover verified interior designers near you. Mad Interio connects you with top-rated design experts for your dream home and decor projects.",
 };

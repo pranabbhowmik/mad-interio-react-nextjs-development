@@ -14,11 +14,11 @@ export default function RootLayout({ children }) {
   useEffect(() => {
     document.documentElement.style.setProperty(
       "--theme-default",
-      ConfigDB.PrimaryColor ? ConfigDB.PrimaryColor : "#d18d4b"
+      ConfigDB.PrimaryColor ? ConfigDB.PrimaryColor : "#d18d4b",
     );
     document.documentElement.style.setProperty(
       "--theme-default2",
-      ConfigDB.SecondaryColor ? ConfigDB.SecondaryColor : "#984b01"
+      ConfigDB.SecondaryColor ? ConfigDB.SecondaryColor : "#984b01",
     );
   }, [pathName]);
 

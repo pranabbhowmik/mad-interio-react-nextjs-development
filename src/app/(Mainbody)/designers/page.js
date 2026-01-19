@@ -1,7 +1,8 @@
 import LeftSidebar from "./LeftSidebar";
 
 export const metadata = {
-  title: "Top Interior Designers | Verified Experts Near You | Mad Interio",
+  title:
+    "Interior Designers Near You | Browse & Compare Designers – Mad Interio",
   description:
     "Explore verified and top-rated interior designers on Mad Interio. Find the best professionals for your home, office, or commercial space — all in one trusted directory.",
   keywords: [
@@ -16,7 +17,8 @@ export const metadata = {
     "Mad Interio",
   ],
   openGraph: {
-    title: "Top Interior Designers | Verified Experts Near You | Mad Interio",
+    title:
+      "Interior Designers Near You | Browse & Compare Designers – Mad Interio",
     description:
       "Browse verified and trusted interior designers on Mad Interio — India’s most reliable interior design directory for homeowners, architects, and developers.",
     url: "https://madinterio.in/interior-designers",
@@ -33,7 +35,8 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Top Interior Designers | Verified Experts Near You | Mad Interio",
+    title:
+      "Interior Designers Near You | Browse & Compare Designers – Mad Interio",
     description:
       "Find the best interior designers and home decor professionals on Mad Interio. Verified experts for every project — from modern homes to commercial interiors.",
     images: ["/assets/images/banner/designers-banner.webp"],

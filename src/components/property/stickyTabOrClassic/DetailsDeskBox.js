@@ -44,7 +44,7 @@ const DetailsDeskBox = ({
   };
 
   return (
-    <div className="desc-box" id="details">
+    <div className="desc-box" id="project">
       <div className="page-section">
         <h4 className="content-title">Business Details</h4>
 
