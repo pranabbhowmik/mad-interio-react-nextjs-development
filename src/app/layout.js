@@ -7,7 +7,7 @@ import "photoswipe/dist/photoswipe.css";
 import { detectLanguage } from "./i18n/server";
 import { I18nProvider } from "./i18n/i18n-context";
 
-const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+const GA_ID = process.env.GOOGLE_ANALYTICS_ID;
 
 export const metadata = {
   title: "Mad Interio | Find Top Interior Designers for Home, Office & more",

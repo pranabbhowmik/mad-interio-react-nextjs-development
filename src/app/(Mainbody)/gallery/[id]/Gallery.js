@@ -50,7 +50,7 @@ const GalleryPage = () => {
       <Navbar />
 
       <Hero
-        heading={galleryTitle || "Designer Portfolio Gallery"}
+        heading={`${galleryTitle ? `${galleryTitle} Gallery` : "Designer Portfolio Gallery"}`}
         subHeading="Explore real interior designs that reflect this designer’s creativity and expertise"
         image="/assets/images/listing/listing-hero.webp"
       />

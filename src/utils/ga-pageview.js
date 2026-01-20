@@ -5,7 +5,7 @@ import { useEffect } from "react";
 
 export default function GAPageView() {
   const pathname = usePathname();
-  const measurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+  const measurementId = process.env.GOOGLE_ANALYTICS_ID;
   useEffect(() => {
     if (!window.gtag) return;
 
