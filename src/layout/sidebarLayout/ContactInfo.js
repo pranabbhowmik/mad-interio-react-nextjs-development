@@ -1,5 +1,5 @@
 import React from "react";
-import { handleViewContactClick } from "@/utils/gaEvents";
+import { handlePhoneClick, handleViewContactClick } from "@/utils/gaEvents";
 import Link from "next/link";
 
 const ContactInfo = ({
@@ -50,7 +50,13 @@ const ContactInfo = ({
                   {showContact ? (
                     <Link
                       href={`tel:${contact.phoneNumber}`}
-                      // Removed onClick here to avoid triggering the top event
+                      onClick={() =>
+                        handlePhoneClick({
+                          designerId,
+                          designerName,
+                          designerCatagory,
+                        })
+                      }
                       style={{
                         color: "inherit",
                         textDecoration: "underline",
