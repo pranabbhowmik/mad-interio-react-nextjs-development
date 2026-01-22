@@ -1,7 +1,10 @@
 // DetailsDeskBox.js
 import React from "react";
 import { Col, Row } from "reactstrap";
-import { handlePhoneClick, handleViewContactClick } from "@/utils/gaEvents";
+import {
+  handlePhoneClick,
+  handleViewbusinessdetailsClick,
+} from "@/utils/gaEvents";
 import Link from "next/link";
 import formatPrice from "@/utils/mad-interio/formatters";
 
@@ -35,7 +38,7 @@ const DetailsDeskBox = ({
   const priceLimits = details?.priceLimits || [];
 
   const handleViewClick = () => {
-    handleViewContactClick({
+    handleViewbusinessdetailsClick({
       designerId,
       designerName,
       designerCatagory,
