@@ -1,10 +1,6 @@
-// DetailsDeskBox.js
 import React from "react";
 import { Col, Row } from "reactstrap";
-import {
-  handlePhoneClick,
-  handleViewbusinessdetailsClick,
-} from "@/utils/gaEvents";
+import { handleViewbusinessdetailsClick } from "@/utils/gaEvents";
 import Link from "next/link";
 import formatPrice from "@/utils/mad-interio/formatters";
 
@@ -73,13 +69,7 @@ const DetailsDeskBox = ({
                     <Link
                       href={`tel:${phone}`}
                       className="text-black hover:text-blue-500 hover:underline"
-                      onClick={() =>
-                        handlePhoneClick({
-                          designerId,
-                          designerName,
-                          designerCatagory,
-                        })
-                      }
+                      // Removed onClick here to avoid triggering the top event
                     >
                       {phone}
                     </Link>
